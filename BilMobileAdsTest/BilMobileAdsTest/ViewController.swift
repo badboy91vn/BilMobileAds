@@ -21,12 +21,12 @@ class ViewController: UIViewController, ADBannerDelegate, ADInterstitialDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        bannerView.backgroundColor = .blue
-//        bannerVideoView.backgroundColor = .red
+        bannerView1.backgroundColor = .blue
+        bannerView2.backgroundColor = .red
         
-        banner = ADBanner(self, view: bannerView1, placement: "banner1")
+        banner = ADBanner(self, view: bannerView2, placement: "banner3")
         // banner.setAnchor(anchor: .BottomCenter)
-        banner.setAdSize(size: .Banner320x50)
+        banner.setAdSize(size: .Banner300x250)
         banner.setAutoRefreshMillis(timeMillis: 30000)
         banner.load();
         
@@ -34,8 +34,8 @@ class ViewController: UIViewController, ADBannerDelegate, ADInterstitialDelegate
         //            self.banner.destroy()
         //        }
         
-        //        interstitialAD = ADInterstitial(self, placement: "full1")
-        //        interstitialAD.preLoad()
+        interstitialAD = ADInterstitial(self, placement: "full1")
+        interstitialAD.preLoad()
         
         //        rewardedAD = ADRewarded(self, placement: "rewarded1");
         //        rewardedAD.preLoad()
