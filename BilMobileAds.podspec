@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   spec.source_files  = "BilMobileAds/**/*"
 
   spec.static_framework = false
-  spec.dependency "PrebidMobile", '1.5.0'
+  spec.dependency "PrebidMobile", '1.6.0'
   spec.dependency "Google-Mobile-Ads-SDK", '7.60'
 
 end

@@ -6,7 +6,7 @@ workspace 'BilMobileAds.xcworkspace'
 def pbm_pods
   use_frameworks!
 
-  pod 'PrebidMobile', '1.5.0'
+  pod 'PrebidMobile', '1.6.0'
   pod 'Google-Mobile-Ads-SDK', '7.60'
 end
 

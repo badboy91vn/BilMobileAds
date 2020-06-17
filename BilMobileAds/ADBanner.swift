@@ -114,7 +114,17 @@ public class ADBanner : NSObject, GADBannerViewDelegate {
             
             PBMobileAds.shared.setupPBS(host: adInfor.host)
             PBMobileAds.shared.log("[Banner Video] - configID: '\(adInfor.configId)' | adUnitID: '\(adInfor.adUnitID)'")
-            self.adUnit = VideoAdUnit(configId: adInfor.configId, size: self.curBannerSize.cgSize, type: .inBanner)
+            
+            let parameters = VideoBaseAdUnit.Parameters()
+            parameters.mimes = ["video/mp4"]
+            parameters.protocols = [Signals.Protocols.VAST_2_0]
+            parameters.playbackMethod = [Signals.PlaybackMethod.AutoPlaySoundOff]
+            parameters.placement = Signals.Placement.InBanner
+            
+            let vAdUnit = VideoAdUnit(configId: adInfor.configId, size: self.curBannerSize.cgSize)
+            vAdUnit.parameters = parameters
+            
+            self.adUnit = vAdUnit
         } else {
             guard let infor = getAdInfor(isVideo: false) else {
                 PBMobileAds.shared.log("AdInfor is not exist")
@@ -315,7 +325,7 @@ public class ADBanner : NSObject, GADBannerViewDelegate {
     
     public func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         self.isLoadBannerSucc = false
-
+        
         PBMobileAds.shared.log("Load Fail: \(error.localizedDescription)")
         self.adDelegate?.bannerLoadFail?(data: "Load Fail: \(error.localizedDescription)")
     }

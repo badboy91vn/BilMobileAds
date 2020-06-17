@@ -54,7 +54,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
             self.preLoad()
         }
     }
-
+    
     func getAdInfor(isVideo: Bool) -> AdInfor? {
         for infor in self.adUnitObj.adInfor {
             if infor.isVideo == isVideo {
@@ -79,13 +79,13 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
                     self.deplayCallPreload()
                 }
             }
-
+            
             self.isFetchingAD = false
         }
     }
-
+    
     public func preLoad() {
-         PBMobileAds.shared.log("PBMobileAds: \(PBMobileAds.shared.isInitialize()) | isReady: \(self.isReady()) |  isFetchingAD: \(self.isFetchingAD) | |  isRecallingPreload: \(self.isRecallingPreload)")
+        PBMobileAds.shared.log("PBMobileAds: \(PBMobileAds.shared.isInitialize()) | isReady: \(self.isReady()) |  isFetchingAD: \(self.isFetchingAD) | |  isRecallingPreload: \(self.isRecallingPreload)")
         if PBMobileAds.shared.isInitialize() == false || self.isReady() == true || self.isFetchingAD == true || self.isRecallingPreload == true { return }
         
         PBMobileAds.shared.log("Preload Interstitial AD")
@@ -123,7 +123,17 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
             
             PBMobileAds.shared.setupPBS(host: adInfor.host)
             PBMobileAds.shared.log("[Full Video] - configId: '\(adInfor.configId)' | adUnitID: '\(adInfor.adUnitID)'")
-            self.adUnit = VideoInterstitialAdUnit(configId: adInfor.configId)
+            
+            let parameters = VideoBaseAdUnit.Parameters()
+            parameters.mimes = ["video/mp4"]
+            parameters.protocols = [Signals.Protocols.VAST_2_0]
+            parameters.playbackMethod = [Signals.PlaybackMethod.AutoPlaySoundOn]
+            parameters.placement = Signals.Placement.InBanner
+            
+            let vAdUnit = VideoInterstitialAdUnit(configId: adInfor.configId)
+            vAdUnit.parameters = parameters
+            
+            self.adUnit = vAdUnit
         } else {
             guard let infor = self.getAdInfor(isVideo: false) else {
                 PBMobileAds.shared.log("AdInfor is not exist")
@@ -145,7 +155,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
             self.handerResult(resultCode)
         }
     }
-
+    
     public func load() {
         if self.amInterstitial?.isReady == true {
             self.amInterstitial?.present(fromRootViewController: self.adUIView)
@@ -256,11 +266,3 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
     @objc optional func interstitialWillLeaveApplication(data: String)
     
 }
-
-//public enum ADInterstitialStatus {
-//    case DidReceiveAd
-//    case FailToLoad
-//    case FailToPresentScreen
-//    case DismissScreen
-//    case CloseAd
-//}

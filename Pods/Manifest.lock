@@ -29,14 +29,14 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
-  - PrebidMobile (1.5):
-    - PrebidMobile/core (= 1.5)
-  - PrebidMobile/core (1.5)
-  - PromisesObjC (1.2.8)
+  - PrebidMobile (1.6):
+    - PrebidMobile/core (= 1.6)
+  - PrebidMobile/core (1.6)
+  - PromisesObjC (1.2.9)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK (= 7.60)
-  - PrebidMobile (= 1.5.0)
+  - PrebidMobile (= 1.6.0)
 
 SPEC REPOS:
   trunk:
@@ -52,9 +52,9 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 67458367830514fb20fd9e233496f1eef9d90185
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
-  PrebidMobile: aad9f8f1817e80847e6bf2225acaf0d643ad9006
-  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  PrebidMobile: 92d55caa6b7306e4330231a37bb5ef1c9740e0c9
+  PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
 
-PODFILE CHECKSUM: e1ba849e97f4c2dbf88bddb33691c201dade92e0
+PODFILE CHECKSUM: 95d5f00b675ff7640d843221b111215669f265f0
 
 COCOAPODS: 1.9.2

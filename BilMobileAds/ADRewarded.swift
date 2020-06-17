@@ -132,7 +132,17 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate  {
         
         PBMobileAds.shared.setupPBS(host: adInfor.host)
         PBMobileAds.shared.log("[Rewarded Video] - configId: '\(adInfor.configId)' | adUnitID: '\(adInfor.adUnitID)'")
-        self.adUnit = RewardedVideoAdUnit(configId: adInfor.configId)
+        
+        let parameters = VideoBaseAdUnit.Parameters()
+        parameters.mimes = ["video/mp4"]
+        parameters.protocols = [Signals.Protocols.VAST_2_0]
+        parameters.playbackMethod = [Signals.PlaybackMethod.AutoPlaySoundOn]
+        parameters.placement = Signals.Placement.InBanner
+        
+        let vAdUnit = RewardedVideoAdUnit(configId: adInfor.configId)
+        vAdUnit.parameters = parameters
+        
+        self.adUnit = vAdUnit
         self.amRewardedAd = GADRewardedAd(adUnitID: adInfor.adUnitID)
         
         self.isFetchingAD = true
