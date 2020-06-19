@@ -128,7 +128,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
             parameters.mimes = ["video/mp4"]
             parameters.protocols = [Signals.Protocols.VAST_2_0]
             parameters.playbackMethod = [Signals.PlaybackMethod.AutoPlaySoundOn]
-            parameters.placement = Signals.Placement.InBanner
+            parameters.placement = Signals.Placement.Interstitial // Signals.Placement.InBanner
             
             let vAdUnit = VideoInterstitialAdUnit(configId: adInfor.configId)
             vAdUnit.parameters = parameters

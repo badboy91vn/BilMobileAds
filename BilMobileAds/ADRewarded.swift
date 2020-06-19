@@ -137,7 +137,7 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate  {
         parameters.mimes = ["video/mp4"]
         parameters.protocols = [Signals.Protocols.VAST_2_0]
         parameters.playbackMethod = [Signals.PlaybackMethod.AutoPlaySoundOn]
-        parameters.placement = Signals.Placement.InBanner
+        parameters.placement = Signals.Placement.Interstitial
         
         let vAdUnit = RewardedVideoAdUnit(configId: adInfor.configId)
         vAdUnit.parameters = parameters
