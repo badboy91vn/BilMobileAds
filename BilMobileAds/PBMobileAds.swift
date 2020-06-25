@@ -74,7 +74,7 @@ public class PBMobileAds {
         } else if host.pbHost == "Custom" {
             do {
                 PBMobileAds.shared.log("Custom URL: \(String(describing: host.url ?? ""))")
-                try Prebid.shared.setCustomPrebidServer(url: host.url!)
+                try Prebid.shared.setCustomPrebidServer(url: self.pbServerEndPoint)
                 Prebid.shared.prebidServerHost = PrebidHost.Custom
             } catch {
                 PBMobileAds.shared.log("URL server incorrect!")
@@ -88,8 +88,8 @@ public class PBMobileAds {
     // MARK: - Call API AD
     func getADConfig() {
         self.log("Start Request Config")
-//        self.configId
-        Helper.shared.getAPI(api: ""){ (res: Result<DataConfig, Error>) in
+
+        Helper.shared.getAPI(api: Constants.GET_DATA_CONFIG + "?appId=\(self.configId)"){ (res: Result<DataConfig, Error>) in
             switch res{
             case .success(let dataJSON):
                 self.log("Fetch Data Succ")

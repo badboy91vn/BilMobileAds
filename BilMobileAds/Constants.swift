@@ -41,7 +41,7 @@ struct Constants {
     static let INTERSTITIAL_RECALL_DEFAULT: Double = 10 // Sec
     
     // MARK: - URL Prefix
-    static let URL_PREFIX = "http://127.0.0.1:8000/"
+    static let URL_PREFIX = "https://app-services.vliplatform.com" // "http://192.168.1.88:8000" // 
     // API
-    static let API_ADUNIT = "api/adunit"
+    static let GET_DATA_CONFIG = "/getAdunitConfig"
 }

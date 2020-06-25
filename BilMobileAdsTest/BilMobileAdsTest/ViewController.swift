@@ -24,21 +24,23 @@ class ViewController: UIViewController, ADBannerDelegate, ADInterstitialDelegate
         bannerView1.backgroundColor = .blue
         bannerView2.backgroundColor = .red
         
-        banner = ADBanner(self, view: bannerView2, placement: "banner3")
-        // banner.setAnchor(anchor: .BottomCenter)
-        banner.setAdSize(size: .Banner300x250)
-        banner.setAutoRefreshMillis(timeMillis: 30000)
-        banner.load();
+//        banner = ADBanner(self, view: bannerView2, placement: "32588")
+//        // banner.setAnchor(anchor: .BottomCenter)
+//        banner.setAdSize(size: .Banner300x250)
+//        banner.setAutoRefreshMillis(timeMillis: 30000)
+//        banner.load();
         
         //        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(35000)) {
         //            self.banner.destroy()
         //        }
         
-        interstitialAD = ADInterstitial(self, placement: "full1")
-        interstitialAD.preLoad()
+////        interstitialAD = ADInterstitial(self, placement: "32593")
+//        interstitialAD = ADInterstitial(self, placement: "full1")
+//        interstitialAD.preLoad()
         
-        //        rewardedAD = ADRewarded(self, placement: "rewarded1");
-        //        rewardedAD.preLoad()
+        rewardedAD = ADRewarded(self, placement: "32594");
+//        rewardedAD = ADRewarded(self, placement: "rewarded1");
+        rewardedAD.preLoad()
         
         //        isLeaking()
     }
