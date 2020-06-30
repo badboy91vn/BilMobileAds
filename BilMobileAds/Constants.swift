@@ -35,13 +35,13 @@ struct Constants {
     static let PB_SERVER_CUSTOM = "https://pb-server.vliplatform.com/openrtb2/auction" // "http://localhost:8000/openrtb2/auction" //
     
     // MARK: - Properties
-    static let RECALL_CONFIGID_SERVER: Double = 5
+    static let RECALL_CONFIGID_SERVER: Double = 5 // Sec
     static let BANNER_AUTO_REFRESH_DEFAULT: Double = 30000 // MilliSec
     static let BANNER_RECALL_DEFAULT: Double = 10 // Sec
     static let INTERSTITIAL_RECALL_DEFAULT: Double = 10 // Sec
     
     // MARK: - URL Prefix
-    static let URL_PREFIX = "https://app-services.vliplatform.com" // "http://192.168.1.88:8000" // 
+    static let URL_PREFIX = "https://app-services.vliplatform.com" // "http://192.168.1.88:8000" // "http://127.0.0.1:8000"
     // API
-    static let GET_DATA_CONFIG = "/getAdunitConfig"
+    static let GET_DATA_CONFIG = "/getAdunitConfig?adUnitId="
 }

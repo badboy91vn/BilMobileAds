@@ -50,7 +50,7 @@ class AdUnitObj: Decodable {
 }
 class DataConfig: Decodable {
     var pbServerEndPoint: String
-    var adunit: [AdUnitObj]
+    var adunit: AdUnitObj
 }
 
 class Helper: NSObject {

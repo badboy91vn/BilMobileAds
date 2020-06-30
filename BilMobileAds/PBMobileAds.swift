@@ -16,7 +16,6 @@ public class PBMobileAds {
     // Log Status
     private var isLog: Bool = true
     
-    private var isConfigSucc: Bool = false
     // MARK: List Config
     private var listAdUnitObj: [AdUnitObj] = []
     
@@ -26,19 +25,14 @@ public class PBMobileAds {
     var listADRewarded: [ADRewarded] = []
     
     // MARK: api
-    private var configId: String = ""
     private var pbServerEndPoint: String = ""
     
     private init() {
         log("PBMobileAds Init")
     }
     
-    public func initialize(configId: String, testMode: Bool = false) {
+    public func initialize(testMode: Bool = false) {
         if !isLog { Prebid.shared.logLevel = .error }
-        
-//        Prebid.shared.pbsDebug = true;
-        
-        self.configId = configId
         
         //Declare in init to the user agent could be passed in first call
         Prebid.shared.shareGeoLocation = true;
@@ -48,9 +42,6 @@ public class PBMobileAds {
             GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers =  [ (kGADSimulatorID as! String), "cc7ca766f86b43ab6cdc92bed424069b"];
         }
         GADMobileAds.sharedInstance().start();
-        
-        // print("Internet Available: \(Helper.isNetworkAvailable())")
-        self.getADConfig();
     }
     
     // MARK: - Get Data Config
@@ -86,58 +77,38 @@ public class PBMobileAds {
     }
         
     // MARK: - Call API AD
-    func getADConfig() {
-        self.log("Start Request Config")
-
-        Helper.shared.getAPI(api: Constants.GET_DATA_CONFIG + "?appId=\(self.configId)"){ (res: Result<DataConfig, Error>) in
+    func getADConfig(adUnit: String, complete: @escaping (Result<AdUnitObj,Error>) -> Void) {
+        self.log("Start Request Config adUnit: \(adUnit)")
+        
+        Helper.shared.getAPI(api: Constants.GET_DATA_CONFIG + adUnit){ (res: Result<DataConfig, Error>) in
             switch res{
             case .success(let dataJSON):
                 self.log("Fetch Data Succ")
                 
                 DispatchQueue.main.async{
-                    self.isConfigSucc = true
-                    
                     self.pbServerEndPoint = dataJSON.pbServerEndPoint
                     
-                    // Set all ad type config
-                    for item in dataJSON.adunit {
-                        self.listAdUnitObj.append(item)
-                    }
-                    
-                    // Call all ad init before
-                    self.log("Banner Count: \(self.listADBanner.count)")
-                    for ad in self.listADBanner {
-                        ad.load()
-                    }
-                    self.log("Full Count: \(self.listADIntersititial.count)")
-                    for ad in self.listADIntersititial {
-                        ad.preLoad()
-                    }
-                    self.log("Rewarded Count: \(self.listADRewarded.count)")
-                    for ad in self.listADRewarded {
-                        ad.preLoad()
-                    }
+                    self.listAdUnitObj.append(dataJSON.adunit)
+                    complete(.success(dataJSON.adunit))
                 }
 
                 break
             case .failure(let err):
-                self.log("Failed To Fetch Data: \(err.localizedDescription)")
-                self.timerRecall()
-                self.isConfigSucc = false
+                self.timerRecall(adUnit: adUnit, complete: complete)
+                complete(.failure(err))
                 break
             }
         }
     }
     
-    func timerRecall(){
+    func timerRecall(adUnit: String, complete: @escaping (Result<AdUnitObj,Error>) -> Void){
         self.log("Recall Request Config After: \(Constants.RECALL_CONFIGID_SERVER)")
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.RECALL_CONFIGID_SERVER, execute: {
-            self.getADConfig();
+            self.getADConfig(adUnit: adUnit, complete: complete);
         })
     }
     
     func log( _ object: Any, filename: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
-        
         if !isLog { return }
         print("[PBMobileAds] \(Date().toString()) | [\(self.sourceFileName(filePath: filename))]:\(line) \(column) | \(funcName) -> \(object)")
     }
@@ -145,11 +116,6 @@ public class PBMobileAds {
     func sourceFileName(filePath: String) -> String {
         let components = filePath.components(separatedBy: "/")
         return components.isEmpty ? "" : components.last!
-    }
-    
-    
-    public func isInitialize() -> Bool {
-        return isConfigSucc
     }
     
     public func enableCOPPA() {

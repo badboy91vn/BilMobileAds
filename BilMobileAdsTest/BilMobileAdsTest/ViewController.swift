@@ -24,41 +24,15 @@ class ViewController: UIViewController, ADBannerDelegate, ADInterstitialDelegate
         bannerView1.backgroundColor = .blue
         bannerView2.backgroundColor = .red
         
-//        banner = ADBanner(self, view: bannerView2, placement: "32588")
-//        // banner.setAnchor(anchor: .BottomCenter)
-//        banner.setAdSize(size: .Banner300x250)
-//        banner.setAutoRefreshMillis(timeMillis: 30000)
-//        banner.load();
-        
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(35000)) {
-        //            self.banner.destroy()
-        //        }
-        
-////        interstitialAD = ADInterstitial(self, placement: "32593")
-//        interstitialAD = ADInterstitial(self, placement: "full1")
+        banner = ADBanner(self, view: bannerView2, placement: "1001")
+        banner.setAdSize(size: .Banner300x250)
+        banner.setAutoRefreshMillis(timeMillis: 30000)
+
+//        interstitialAD = ADInterstitial(self, placement: "1002")
 //        interstitialAD.preLoad()
         
-        rewardedAD = ADRewarded(self, placement: "32594");
-//        rewardedAD = ADRewarded(self, placement: "rewarded1");
-        rewardedAD.preLoad()
-        
-        //        isLeaking()
-    }
-    
-    func isLeaking() -> Bool {
-        var x: ADBanner? = ADBanner(self, view: bannerView1, placement: "banner1")
-
-        weak var leakReference = x
-
-        x = nil
-
-        if leakReference == nil {
-            print("Not Leaking")
-            return false //Not leaking
-        } else {
-            print("Leaking")
-            return true //Leaking
-        }
+        rewardedAD = ADRewarded(self, placement: "1003");
+//        rewardedAD.preLoad()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -66,6 +40,7 @@ class ViewController: UIViewController, ADBannerDelegate, ADInterstitialDelegate
     }
     
     @IBAction func preloadIntersititial(_ sender: Any) {
+        interstitialAD = ADInterstitial(self, placement: "1002")
         interstitialAD?.preLoad()
     }
     

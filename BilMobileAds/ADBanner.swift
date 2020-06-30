@@ -46,7 +46,27 @@ public class ADBanner : NSObject, GADBannerViewDelegate {
         
         self.placement = placement
         
-        PBMobileAds.shared.listADBanner.append(self)
+        // Get AdUnit
+        if (self.adUnitObj == nil) {
+            self.adUnitObj = PBMobileAds.shared.getAdUnitObj(placement: self.placement);
+            if (self.adUnitObj == nil) {
+                PBMobileAds.shared.getADConfig(adUnit: self.placement) { (res: Result<AdUnitObj, Error>) in
+                    switch res{
+                    case .success(let data):
+                        PBMobileAds.shared.log("getADConfig placement: \(String(describing: self.placement)) Succ")
+                        DispatchQueue.main.async{
+                            self.adUnitObj = data
+                            self.load();
+                        }
+                        
+                        break
+                    case .failure(let err):
+                        PBMobileAds.shared.log("getADConfig placement: \(String(describing: self.placement)) Fail \(err.localizedDescription)")
+                        break
+                    }
+                }
+            }
+        }
     }
     
     deinit {
@@ -73,8 +93,8 @@ public class ADBanner : NSObject, GADBannerViewDelegate {
     }
     
     public func load() {
-        PBMobileAds.shared.log("PBMobileAds: \(PBMobileAds.shared.isInitialize()) | isRunning: \(self.isLoaded()) |  isRecallingPreload: \(self.isRecallingPreload)")
-        if PBMobileAds.shared.isInitialize() == false || self.isLoaded() == true || self.isRecallingPreload == true { return }
+        PBMobileAds.shared.log(" | isRunning: \(self.isLoaded()) |  isRecallingPreload: \(self.isRecallingPreload)")
+        if self.adUnitObj == nil || self.isLoaded() == true || self.isRecallingPreload == true { return }
         
         PBMobileAds.shared.log("Load Banner AD")
         
@@ -145,7 +165,7 @@ public class ADBanner : NSObject, GADBannerViewDelegate {
         self.appBannerView.addSubview(self.amBanner)
         
         self.adUnit.fetchDemand(adObject: self.amRequest) { [weak self] (resultCode: ResultCode) in
-            PBMobileAds.shared.log("Prebid demand fetch for DFP \(resultCode.name())")
+            PBMobileAds.shared.log("Prebid demand fetch for DFP \(resultCode.name()) | placement: \(String(describing: self?.placement))")
             self?.handerResult(resultCode);
         }
     }

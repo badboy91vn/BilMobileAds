@@ -38,7 +38,29 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
         
         self.placement = placement
         
-        PBMobileAds.shared.listADIntersititial.append(self)
+        // Get AdUnit
+        if (self.adUnitObj == nil) {
+            self.adUnitObj = PBMobileAds.shared.getAdUnitObj(placement: self.placement);
+            if (self.adUnitObj == nil) {
+                PBMobileAds.shared.getADConfig(adUnit: self.placement) { (res: Result<AdUnitObj, Error>) in
+                    switch res{
+                    case .success(let data):
+                        PBMobileAds.shared.log("getADConfig Fail placement: \(String(describing: self.placement))")
+                        DispatchQueue.main.async{
+                            self.adUnitObj = data
+                            self.preLoad();
+                        }
+                        
+                        break
+                    case .failure(let err):
+                        PBMobileAds.shared.log("getADConfig placement: \(String(describing: self.placement)) Fail \(err.localizedDescription)")
+                        break
+                    }
+                }
+            } else {
+                self.preLoad();
+            }
+        }
     }
     
     deinit {
@@ -85,8 +107,8 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
     }
     
     public func preLoad() {
-        PBMobileAds.shared.log("PBMobileAds: \(PBMobileAds.shared.isInitialize()) | isReady: \(self.isReady()) |  isFetchingAD: \(self.isFetchingAD) | |  isRecallingPreload: \(self.isRecallingPreload)")
-        if PBMobileAds.shared.isInitialize() == false || self.isReady() == true || self.isFetchingAD == true || self.isRecallingPreload == true { return }
+        PBMobileAds.shared.log(" | isReady: \(self.isReady()) |  isFetchingAD: \(self.isFetchingAD) | |  isRecallingPreload: \(self.isRecallingPreload)")
+        if self.adUnitObj == nil || self.isReady() == true || self.isFetchingAD == true || self.isRecallingPreload == true { return }
         
         PBMobileAds.shared.log("Preload Interstitial AD")
         
@@ -151,7 +173,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
         
         self.isFetchingAD = true
         self.adUnit?.fetchDemand(adObject: self.amRequest) { (resultCode: ResultCode) in
-            PBMobileAds.shared.log("Prebid demand fetch for DFP \(resultCode.name())")
+            PBMobileAds.shared.log("Prebid demand fetch for DFP \(resultCode.name()) | placement: \(String(describing: self.placement))")
             self.handerResult(resultCode)
         }
     }
