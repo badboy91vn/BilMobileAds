@@ -9,7 +9,7 @@
 import PrebidMobile
 import GoogleMobileAds
 
-public class ADBanner : NSObject, GADBannerViewDelegate {
+public class ADBanner : NSObject, GADBannerViewDelegate, CloseListenerDelegate {
     
     // MARK: - View OBJ
     weak var appBannerView: UIView!
@@ -56,9 +56,18 @@ public class ADBanner : NSObject, GADBannerViewDelegate {
                         PBMobileAds.shared.log("getADConfig placement: \(String(describing: self.placement)) Succ")
                         DispatchQueue.main.async{
                             self.adUnitObj = data
-                            self.load();
+                            
+                            let consentStr = CMPConsentToolAPI().consentString
+                            PBMobileAds.shared.log("ConsentStr: \(String(describing: consentStr))")
+                            // PBMobileAds.shared.showGDPR &&
+                            if consentStr == "" {
+                                let cmp = ShowCMP()
+                                cmp.closeDelegate = self
+                                cmp.open(self.adUIViewCtr, appName: PBMobileAds.shared.appName)
+                            } else {
+                                self.load()
+                            }
                         }
-                        
                         break
                     case .failure(let err):
                         PBMobileAds.shared.log("getADConfig placement: \(String(describing: self.placement)) Fail \(err.localizedDescription)")
@@ -72,6 +81,13 @@ public class ADBanner : NSObject, GADBannerViewDelegate {
     deinit {
         PBMobileAds.shared.log("AD Banner Deinit")
         self.destroy()
+    }
+    
+    public func onWebViewClosed() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            PBMobileAds.shared.log("ConsentStr: \(String(describing: CMPConsentToolAPI().consentString))")
+            self.load()
+        }
     }
     
     // MARK: - Preload + Load
@@ -95,7 +111,6 @@ public class ADBanner : NSObject, GADBannerViewDelegate {
     public func load() {
         PBMobileAds.shared.log(" | isRunning: \(self.isLoaded()) |  isRecallingPreload: \(self.isRecallingPreload)")
         if self.adUnitObj == nil || self.isLoaded() == true || self.isRecallingPreload == true { return }
-        
         PBMobileAds.shared.log("Load Banner AD")
         
         // Get Data Config

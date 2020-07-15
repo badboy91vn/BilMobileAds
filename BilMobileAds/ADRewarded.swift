@@ -9,10 +9,10 @@
 import PrebidMobile
 import GoogleMobileAds
 
-public class ADRewarded: NSObject, GADRewardedAdDelegate  {
+public class ADRewarded: NSObject, GADRewardedAdDelegate, CloseListenerDelegate {
     
     // MARK: AD View
-    weak var adUIView: UIViewController!
+    weak var adUIViewCtr: UIViewController!
     weak var adDelegate: ADRewardedDelegate!
     
     // MARK: AD OBJ
@@ -33,7 +33,7 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate  {
     public init(_ adView: UIViewController, placement: String) {
         super.init()
         
-        self.adUIView = adView
+        self.adUIViewCtr = adView
         self.adDelegate = adView as? ADRewardedDelegate
         
         self.placement = placement
@@ -48,7 +48,17 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate  {
                         PBMobileAds.shared.log("getADConfig Fail placement: \(String(describing: self.placement))")
                         DispatchQueue.main.async{
                             self.adUnitObj = data
-                            self.preLoad();
+                            
+                            let consentStr = CMPConsentToolAPI().consentString
+                            PBMobileAds.shared.log("ConsentStr: \(String(describing: consentStr))")
+                            // PBMobileAds.shared.showGDPR &&
+                            if consentStr == "" {
+                                let cmp = ShowCMP()
+                                cmp.closeDelegate = self
+                                cmp.open(self.adUIViewCtr, appName: PBMobileAds.shared.appName)
+                            } else {
+                                self.preLoad()
+                            }
                         }
                         
                         break
@@ -66,6 +76,13 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate  {
     deinit {
         PBMobileAds.shared.log("AD Rewarded Deinit")
         self.destroy()
+    }
+    
+    public func onWebViewClosed() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            PBMobileAds.shared.log("ConsentStr: \(String(describing: CMPConsentToolAPI().consentString))")
+            self.load()
+        }
     }
     
     // MARK: - Preload + Load
@@ -97,7 +114,7 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate  {
                 } else {
                     if self.isLoadAfterPreload {
                         if self.amRewardedAd?.isReady == true {
-                            self.amRewardedAd?.present(fromRootViewController: self.adUIView, delegate: self)
+                            self.amRewardedAd?.present(fromRootViewController: self.adUIViewCtr, delegate: self)
                         }
                         
                         self.isLoadAfterPreload = false
@@ -176,7 +193,7 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate  {
     
     public func load(){
         if self.amRewardedAd?.isReady == true {
-            self.amRewardedAd?.present(fromRootViewController: self.adUIView, delegate: self)
+            self.amRewardedAd?.present(fromRootViewController: self.adUIViewCtr, delegate: self)
         } else {
             PBMobileAds.shared.log("Don't have AD")
             self.isLoadAfterPreload = true

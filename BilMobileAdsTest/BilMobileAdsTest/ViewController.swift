@@ -31,7 +31,7 @@ class ViewController: UIViewController, ADBannerDelegate, ADInterstitialDelegate
 //        interstitialAD = ADInterstitial(self, placement: "1002")
 //        interstitialAD.preLoad()
         
-        rewardedAD = ADRewarded(self, placement: "1003");
+//        rewardedAD = ADRewarded(self, placement: "1003");
 //        rewardedAD.preLoad()
     }
     

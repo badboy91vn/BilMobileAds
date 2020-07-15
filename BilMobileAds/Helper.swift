@@ -49,6 +49,7 @@ class AdUnitObj: Decodable {
     var adInfor: [AdInfor]
 }
 class DataConfig: Decodable {
+    var showGDPR: Bool?
     var pbServerEndPoint: String
     var adunit: AdUnitObj
 }

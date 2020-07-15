@@ -19,12 +19,9 @@ public class PBMobileAds {
     // MARK: List Config
     private var listAdUnitObj: [AdUnitObj] = []
     
-    // MARK: List AD
-    var listADBanner: [ADBanner] = []
-    var listADIntersititial: [ADInterstitial] = []
-    var listADRewarded: [ADRewarded] = []
-    
     // MARK: api
+    var appName: String = "";
+    var showGDPR: Bool = false;
     private var pbServerEndPoint: String = ""
     
     private init() {
@@ -33,6 +30,8 @@ public class PBMobileAds {
     
     public func initialize(testMode: Bool = false) {
         if !isLog { Prebid.shared.logLevel = .error }
+        
+        self.appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? ""
         
         //Declare in init to the user agent could be passed in first call
         Prebid.shared.shareGeoLocation = true;
@@ -64,7 +63,7 @@ public class PBMobileAds {
             Prebid.shared.prebidServerHost = PrebidHost.Rubicon
         } else if host.pbHost == "Custom" {
             do {
-                PBMobileAds.shared.log("Custom URL: \(String(describing: host.url ?? ""))")
+                PBMobileAds.shared.log("Custom URL: \(String(describing: self.pbServerEndPoint ?? ""))")
                 try Prebid.shared.setCustomPrebidServer(url: self.pbServerEndPoint)
                 Prebid.shared.prebidServerHost = PrebidHost.Custom
             } catch {
@@ -86,6 +85,7 @@ public class PBMobileAds {
                 self.log("Fetch Data Succ")
                 
                 DispatchQueue.main.async{
+                    self.showGDPR = dataJSON.showGDPR ?? false;
                     self.pbServerEndPoint = dataJSON.pbServerEndPoint
                     
                     self.listAdUnitObj.append(dataJSON.adunit)

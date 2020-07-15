@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "BilMobileAds"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.2"
   spec.summary      = "Summary of BilMobileAds."
   spec.description  = "Description of BilMobileAds."
   spec.homepage     = "https://github.com/badboy91vn/BilMobileAds"

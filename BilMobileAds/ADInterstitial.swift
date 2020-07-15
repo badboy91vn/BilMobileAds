@@ -9,10 +9,10 @@
 import PrebidMobile
 import GoogleMobileAds
 
-public class ADInterstitial: NSObject, GADInterstitialDelegate  {
+public class ADInterstitial: NSObject, GADInterstitialDelegate, CloseListenerDelegate  {
     
     // MARK: AD View
-    weak var adUIView: UIViewController!
+    weak var adUIViewCtr: UIViewController!
     weak var adDelegate: ADInterstitialDelegate!
     
     // MARK: AD OBJ
@@ -33,7 +33,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
     public init(_ adView: UIViewController, placement: String) {
         super.init()
         
-        self.adUIView = adView
+        self.adUIViewCtr = adView
         self.adDelegate = adView as? ADInterstitialDelegate
         
         self.placement = placement
@@ -48,7 +48,17 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
                         PBMobileAds.shared.log("getADConfig Fail placement: \(String(describing: self.placement))")
                         DispatchQueue.main.async{
                             self.adUnitObj = data
-                            self.preLoad();
+
+                            let consentStr = CMPConsentToolAPI().consentString
+                            PBMobileAds.shared.log("ConsentStr: \(String(describing: consentStr))")
+                            // PBMobileAds.shared.showGDPR &&
+                            if consentStr == "" {
+                                let cmp = ShowCMP()
+                                cmp.closeDelegate = self
+                                cmp.open(self.adUIViewCtr, appName: PBMobileAds.shared.appName)
+                            } else {
+                                self.preLoad()
+                            }
                         }
                         
                         break
@@ -66,6 +76,13 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
     deinit {
         PBMobileAds.shared.log("AD Interstitial Deinit")
         self.destroy()
+    }
+    
+    public func onWebViewClosed() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            PBMobileAds.shared.log("ConsentStr: \(String(describing: CMPConsentToolAPI().consentString))")
+            self.load()
+        }
     }
     
     // MARK: - Preload + Load
@@ -180,7 +197,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
     
     public func load() {
         if self.amInterstitial?.isReady == true {
-            self.amInterstitial?.present(fromRootViewController: self.adUIView)
+            self.amInterstitial?.present(fromRootViewController: self.adUIViewCtr)
         } else {
             PBMobileAds.shared.log("Don't have AD")
             self.isLoadAfterPreload = true
@@ -220,7 +237,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate  {
             self.adDelegate?.interstitialDidReceiveAd?(data: self.placement)
             
             if self.isLoadAfterPreload {
-                self.amInterstitial?.present(fromRootViewController: self.adUIView)
+                self.amInterstitial?.present(fromRootViewController: self.adUIViewCtr)
                 self.isLoadAfterPreload = false
             }
         } else {

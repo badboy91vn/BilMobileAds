@@ -15,6 +15,53 @@
 		F957BA20249888100022C6AC /* ADBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F957BA1F249888100022C6AC /* ADBanner.swift */; };
 		F957BA222498882E0022C6AC /* ADInterstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = F957BA212498882E0022C6AC /* ADInterstitial.swift */; };
 		F957BA242498884C0022C6AC /* ADRewarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F957BA232498884C0022C6AC /* ADRewarded.swift */; };
+		F9D467B424BF01DC002E4113 /* ShowCMP.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467B224BF01DC002E4113 /* ShowCMP.m */; };
+		F9D467B524BF01DC002E4113 /* ShowCMP.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467B324BF01DC002E4113 /* ShowCMP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467CF24BF03B7002E4113 /* CMPConsentTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467CD24BF03B7002E4113 /* CMPConsentTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467D024BF03B7002E4113 /* CMPConsentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467CE24BF03B7002E4113 /* CMPConsentTool.m */; };
+		F9D467D224BF03FE002E4113 /* CMPDataStorageConsentManagerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467D124BF03FE002E4113 /* CMPDataStorageConsentManagerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467D524BF0411002E4113 /* CMPDataStorageConsentManagerUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467D324BF0411002E4113 /* CMPDataStorageConsentManagerUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467D624BF0411002E4113 /* CMPDataStorageConsentManagerUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467D424BF0411002E4113 /* CMPDataStorageConsentManagerUserDefaults.m */; };
+		F9D467D824BF0433002E4113 /* CMPDataStoragePrivateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467D724BF0433002E4113 /* CMPDataStoragePrivateProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467DB24BF0444002E4113 /* CMPDataStoragePrivateUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467D924BF0444002E4113 /* CMPDataStoragePrivateUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467DC24BF0444002E4113 /* CMPDataStoragePrivateUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467DA24BF0444002E4113 /* CMPDataStoragePrivateUserDefaults.m */; };
+		F9D467DE24BF045E002E4113 /* CMPDataStorageV1Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467DD24BF045E002E4113 /* CMPDataStorageV1Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467E124BF0470002E4113 /* CMPDataStorageV1UserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467DF24BF0470002E4113 /* CMPDataStorageV1UserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467E224BF0470002E4113 /* CMPDataStorageV1UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467E024BF0470002E4113 /* CMPDataStorageV1UserDefaults.m */; };
+		F9D467E424BF0491002E4113 /* CMPDataStorageV2Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467E324BF0491002E4113 /* CMPDataStorageV2Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467E724BF04A4002E4113 /* CMPDataStorageV2UserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467E524BF04A4002E4113 /* CMPDataStorageV2UserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467E824BF04A4002E4113 /* CMPDataStorageV2UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467E624BF04A4002E4113 /* CMPDataStorageV2UserDefaults.m */; };
+		F9D467EB24BF04DE002E4113 /* CMPActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467E924BF04DE002E4113 /* CMPActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467EC24BF04DE002E4113 /* CMPActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467EA24BF04DE002E4113 /* CMPActivityIndicatorView.m */; };
+		F9D467EF24BF04FB002E4113 /* CMPConsentToolViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467ED24BF04FB002E4113 /* CMPConsentToolViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467F024BF04FB002E4113 /* CMPConsentToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467EE24BF04FB002E4113 /* CMPConsentToolViewController.m */; };
+		F9D467F224BF051F002E4113 /* CMPConsentV1Constant.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467F124BF051F002E4113 /* CMPConsentV1Constant.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467F524BF0534002E4113 /* CMPConsentV1Parser.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467F324BF0534002E4113 /* CMPConsentV1Parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467F624BF0534002E4113 /* CMPConsentV1Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467F424BF0534002E4113 /* CMPConsentV1Parser.m */; };
+		F9D467F824BF054F002E4113 /* CMPConsentV2Constant.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467F724BF054F002E4113 /* CMPConsentV2Constant.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467FB24BF0561002E4113 /* CMPConsentV2Parser.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467F924BF0561002E4113 /* CMPConsentV2Parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D467FC24BF0561002E4113 /* CMPConsentV2Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467FA24BF0561002E4113 /* CMPConsentV2Parser.m */; };
+		F9D467FF24BF057D002E4113 /* PublisherRestriction.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D467FD24BF057D002E4113 /* PublisherRestriction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4680024BF057D002E4113 /* PublisherRestriction.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D467FE24BF057D002E4113 /* PublisherRestriction.m */; };
+		F9D4680224BF05BB002E4113 /* CloseListenerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4680124BF05BB002E4113 /* CloseListenerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4680424BF05CB002E4113 /* CloseListener.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4680324BF05CB002E4113 /* CloseListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4680624BF05DC002E4113 /* CustomOpenListener.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4680524BF05DC002E4113 /* CustomOpenListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4680824BF05EC002E4113 /* NetworkErrorListener.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4680724BF05EC002E4113 /* NetworkErrorListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4680A24BF05FF002E4113 /* OpenListener.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4680924BF05FF002E4113 /* OpenListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4680C24BF060F002E4113 /* ServerErrorListener.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4680B24BF060F002E4113 /* ServerErrorListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4680F24BF0623002E4113 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4680D24BF0623002E4113 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4681024BF0623002E4113 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4680E24BF0623002E4113 /* Reachability.m */; };
+		F9D4681324BF063B002E4113 /* CMPConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4681124BF063B002E4113 /* CMPConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4681424BF063B002E4113 /* CMPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4681224BF063B002E4113 /* CMPConfig.m */; };
+		F9D4681724BF0655002E4113 /* CMPSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4681524BF0655002E4113 /* CMPSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4681824BF0655002E4113 /* CMPSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4681624BF0655002E4113 /* CMPSettings.m */; };
+		F9D4681B24BF0670002E4113 /* CMPServerResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4681924BF066F002E4113 /* CMPServerResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4681C24BF0670002E4113 /* CMPServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4681A24BF0670002E4113 /* CMPServerResponse.m */; };
+		F9D4681F24BF0688002E4113 /* CMPConsentToolAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4681D24BF0688002E4113 /* CMPConsentToolAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4682024BF0688002E4113 /* CMPConsentToolAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4681E24BF0688002E4113 /* CMPConsentToolAPI.m */; };
+		F9D4682324BF069E002E4113 /* CMPConsentToolUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4682124BF069E002E4113 /* CMPConsentToolUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D4682424BF069E002E4113 /* CMPConsentToolUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4682224BF069E002E4113 /* CMPConsentToolUtil.m */; };
+		F9D4682624BF06B6002E4113 /* CMPTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4682524BF06B6002E4113 /* CMPTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +77,53 @@
 		F957BA1F249888100022C6AC /* ADBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADBanner.swift; sourceTree = "<group>"; };
 		F957BA212498882E0022C6AC /* ADInterstitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADInterstitial.swift; sourceTree = "<group>"; };
 		F957BA232498884C0022C6AC /* ADRewarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADRewarded.swift; sourceTree = "<group>"; };
+		F9D467B224BF01DC002E4113 /* ShowCMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCMP.m; sourceTree = "<group>"; };
+		F9D467B324BF01DC002E4113 /* ShowCMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCMP.h; sourceTree = "<group>"; };
+		F9D467CD24BF03B7002E4113 /* CMPConsentTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConsentTool.h; sourceTree = "<group>"; };
+		F9D467CE24BF03B7002E4113 /* CMPConsentTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConsentTool.m; sourceTree = "<group>"; };
+		F9D467D124BF03FE002E4113 /* CMPDataStorageConsentManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPDataStorageConsentManagerProtocol.h; sourceTree = "<group>"; };
+		F9D467D324BF0411002E4113 /* CMPDataStorageConsentManagerUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPDataStorageConsentManagerUserDefaults.h; sourceTree = "<group>"; };
+		F9D467D424BF0411002E4113 /* CMPDataStorageConsentManagerUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPDataStorageConsentManagerUserDefaults.m; sourceTree = "<group>"; };
+		F9D467D724BF0433002E4113 /* CMPDataStoragePrivateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPDataStoragePrivateProtocol.h; sourceTree = "<group>"; };
+		F9D467D924BF0444002E4113 /* CMPDataStoragePrivateUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPDataStoragePrivateUserDefaults.h; sourceTree = "<group>"; };
+		F9D467DA24BF0444002E4113 /* CMPDataStoragePrivateUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPDataStoragePrivateUserDefaults.m; sourceTree = "<group>"; };
+		F9D467DD24BF045E002E4113 /* CMPDataStorageV1Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPDataStorageV1Protocol.h; sourceTree = "<group>"; };
+		F9D467DF24BF0470002E4113 /* CMPDataStorageV1UserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPDataStorageV1UserDefaults.h; sourceTree = "<group>"; };
+		F9D467E024BF0470002E4113 /* CMPDataStorageV1UserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPDataStorageV1UserDefaults.m; sourceTree = "<group>"; };
+		F9D467E324BF0491002E4113 /* CMPDataStorageV2Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPDataStorageV2Protocol.h; sourceTree = "<group>"; };
+		F9D467E524BF04A4002E4113 /* CMPDataStorageV2UserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPDataStorageV2UserDefaults.h; sourceTree = "<group>"; };
+		F9D467E624BF04A4002E4113 /* CMPDataStorageV2UserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPDataStorageV2UserDefaults.m; sourceTree = "<group>"; };
+		F9D467E924BF04DE002E4113 /* CMPActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPActivityIndicatorView.h; sourceTree = "<group>"; };
+		F9D467EA24BF04DE002E4113 /* CMPActivityIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPActivityIndicatorView.m; sourceTree = "<group>"; };
+		F9D467ED24BF04FB002E4113 /* CMPConsentToolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConsentToolViewController.h; sourceTree = "<group>"; };
+		F9D467EE24BF04FB002E4113 /* CMPConsentToolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConsentToolViewController.m; sourceTree = "<group>"; };
+		F9D467F124BF051F002E4113 /* CMPConsentV1Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConsentV1Constant.h; sourceTree = "<group>"; };
+		F9D467F324BF0534002E4113 /* CMPConsentV1Parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConsentV1Parser.h; sourceTree = "<group>"; };
+		F9D467F424BF0534002E4113 /* CMPConsentV1Parser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConsentV1Parser.m; sourceTree = "<group>"; };
+		F9D467F724BF054F002E4113 /* CMPConsentV2Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConsentV2Constant.h; sourceTree = "<group>"; };
+		F9D467F924BF0561002E4113 /* CMPConsentV2Parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConsentV2Parser.h; sourceTree = "<group>"; };
+		F9D467FA24BF0561002E4113 /* CMPConsentV2Parser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConsentV2Parser.m; sourceTree = "<group>"; };
+		F9D467FD24BF057D002E4113 /* PublisherRestriction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublisherRestriction.h; sourceTree = "<group>"; };
+		F9D467FE24BF057D002E4113 /* PublisherRestriction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublisherRestriction.m; sourceTree = "<group>"; };
+		F9D4680124BF05BB002E4113 /* CloseListenerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloseListenerDelegate.h; sourceTree = "<group>"; };
+		F9D4680324BF05CB002E4113 /* CloseListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloseListener.h; sourceTree = "<group>"; };
+		F9D4680524BF05DC002E4113 /* CustomOpenListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomOpenListener.h; sourceTree = "<group>"; };
+		F9D4680724BF05EC002E4113 /* NetworkErrorListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkErrorListener.h; sourceTree = "<group>"; };
+		F9D4680924BF05FF002E4113 /* OpenListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenListener.h; sourceTree = "<group>"; };
+		F9D4680B24BF060F002E4113 /* ServerErrorListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerErrorListener.h; sourceTree = "<group>"; };
+		F9D4680D24BF0623002E4113 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		F9D4680E24BF0623002E4113 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		F9D4681124BF063B002E4113 /* CMPConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConfig.h; sourceTree = "<group>"; };
+		F9D4681224BF063B002E4113 /* CMPConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConfig.m; sourceTree = "<group>"; };
+		F9D4681524BF0655002E4113 /* CMPSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPSettings.h; sourceTree = "<group>"; };
+		F9D4681624BF0655002E4113 /* CMPSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPSettings.m; sourceTree = "<group>"; };
+		F9D4681924BF066F002E4113 /* CMPServerResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPServerResponse.h; sourceTree = "<group>"; };
+		F9D4681A24BF0670002E4113 /* CMPServerResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPServerResponse.m; sourceTree = "<group>"; };
+		F9D4681D24BF0688002E4113 /* CMPConsentToolAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConsentToolAPI.h; sourceTree = "<group>"; };
+		F9D4681E24BF0688002E4113 /* CMPConsentToolAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConsentToolAPI.m; sourceTree = "<group>"; };
+		F9D4682124BF069E002E4113 /* CMPConsentToolUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConsentToolUtil.h; sourceTree = "<group>"; };
+		F9D4682224BF069E002E4113 /* CMPConsentToolUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConsentToolUtil.m; sourceTree = "<group>"; };
+		F9D4682524BF06B6002E4113 /* CMPTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +176,7 @@
 		F957B9F0249884C80022C6AC /* BilMobileAds */ = {
 			isa = PBXGroup;
 			children = (
+				F9D467C724BF035D002E4113 /* ConsentManager */,
 				F957B9F1249884C80022C6AC /* BilMobileAds.h */,
 				F957B9F2249884C80022C6AC /* Info.plist */,
 				F957BA1D249887C00022C6AC /* Constants.swift */,
@@ -90,8 +185,102 @@
 				F957BA1F249888100022C6AC /* ADBanner.swift */,
 				F957BA212498882E0022C6AC /* ADInterstitial.swift */,
 				F957BA232498884C0022C6AC /* ADRewarded.swift */,
+				F9D467B324BF01DC002E4113 /* ShowCMP.h */,
+				F9D467B224BF01DC002E4113 /* ShowCMP.m */,
 			);
 			path = BilMobileAds;
+			sourceTree = "<group>";
+		};
+		F9D467C724BF035D002E4113 /* ConsentManager */ = {
+			isa = PBXGroup;
+			children = (
+				F9D467C824BF036A002E4113 /* Storage */,
+				F9D467C924BF037A002E4113 /* Presentation */,
+				F9D467CA24BF0387002E4113 /* Parser */,
+				F9D467CB24BF0393002E4113 /* Listener */,
+				F9D467CC24BF039E002E4113 /* API */,
+				F9D467CD24BF03B7002E4113 /* CMPConsentTool.h */,
+				F9D467CE24BF03B7002E4113 /* CMPConsentTool.m */,
+			);
+			path = ConsentManager;
+			sourceTree = "<group>";
+		};
+		F9D467C824BF036A002E4113 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				F9D467D124BF03FE002E4113 /* CMPDataStorageConsentManagerProtocol.h */,
+				F9D467D324BF0411002E4113 /* CMPDataStorageConsentManagerUserDefaults.h */,
+				F9D467D424BF0411002E4113 /* CMPDataStorageConsentManagerUserDefaults.m */,
+				F9D467D724BF0433002E4113 /* CMPDataStoragePrivateProtocol.h */,
+				F9D467D924BF0444002E4113 /* CMPDataStoragePrivateUserDefaults.h */,
+				F9D467DA24BF0444002E4113 /* CMPDataStoragePrivateUserDefaults.m */,
+				F9D467DD24BF045E002E4113 /* CMPDataStorageV1Protocol.h */,
+				F9D467DF24BF0470002E4113 /* CMPDataStorageV1UserDefaults.h */,
+				F9D467E024BF0470002E4113 /* CMPDataStorageV1UserDefaults.m */,
+				F9D467E324BF0491002E4113 /* CMPDataStorageV2Protocol.h */,
+				F9D467E524BF04A4002E4113 /* CMPDataStorageV2UserDefaults.h */,
+				F9D467E624BF04A4002E4113 /* CMPDataStorageV2UserDefaults.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		F9D467C924BF037A002E4113 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F9D467E924BF04DE002E4113 /* CMPActivityIndicatorView.h */,
+				F9D467EA24BF04DE002E4113 /* CMPActivityIndicatorView.m */,
+				F9D467ED24BF04FB002E4113 /* CMPConsentToolViewController.h */,
+				F9D467EE24BF04FB002E4113 /* CMPConsentToolViewController.m */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F9D467CA24BF0387002E4113 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				F9D467F124BF051F002E4113 /* CMPConsentV1Constant.h */,
+				F9D467F324BF0534002E4113 /* CMPConsentV1Parser.h */,
+				F9D467F424BF0534002E4113 /* CMPConsentV1Parser.m */,
+				F9D467F724BF054F002E4113 /* CMPConsentV2Constant.h */,
+				F9D467F924BF0561002E4113 /* CMPConsentV2Parser.h */,
+				F9D467FA24BF0561002E4113 /* CMPConsentV2Parser.m */,
+				F9D467FD24BF057D002E4113 /* PublisherRestriction.h */,
+				F9D467FE24BF057D002E4113 /* PublisherRestriction.m */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		F9D467CB24BF0393002E4113 /* Listener */ = {
+			isa = PBXGroup;
+			children = (
+				F9D4680124BF05BB002E4113 /* CloseListenerDelegate.h */,
+				F9D4680324BF05CB002E4113 /* CloseListener.h */,
+				F9D4680524BF05DC002E4113 /* CustomOpenListener.h */,
+				F9D4680724BF05EC002E4113 /* NetworkErrorListener.h */,
+				F9D4680924BF05FF002E4113 /* OpenListener.h */,
+				F9D4680B24BF060F002E4113 /* ServerErrorListener.h */,
+			);
+			path = Listener;
+			sourceTree = "<group>";
+		};
+		F9D467CC24BF039E002E4113 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F9D4680D24BF0623002E4113 /* Reachability.h */,
+				F9D4680E24BF0623002E4113 /* Reachability.m */,
+				F9D4681124BF063B002E4113 /* CMPConfig.h */,
+				F9D4681224BF063B002E4113 /* CMPConfig.m */,
+				F9D4681524BF0655002E4113 /* CMPSettings.h */,
+				F9D4681624BF0655002E4113 /* CMPSettings.m */,
+				F9D4681924BF066F002E4113 /* CMPServerResponse.h */,
+				F9D4681A24BF0670002E4113 /* CMPServerResponse.m */,
+				F9D4681D24BF0688002E4113 /* CMPConsentToolAPI.h */,
+				F9D4681E24BF0688002E4113 /* CMPConsentToolAPI.m */,
+				F9D4682124BF069E002E4113 /* CMPConsentToolUtil.h */,
+				F9D4682224BF069E002E4113 /* CMPConsentToolUtil.m */,
+				F9D4682524BF06B6002E4113 /* CMPTypes.h */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,6 +290,36 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9D4681F24BF0688002E4113 /* CMPConsentToolAPI.h in Headers */,
+				F9D467DE24BF045E002E4113 /* CMPDataStorageV1Protocol.h in Headers */,
+				F9D4681724BF0655002E4113 /* CMPSettings.h in Headers */,
+				F9D467CF24BF03B7002E4113 /* CMPConsentTool.h in Headers */,
+				F9D467FB24BF0561002E4113 /* CMPConsentV2Parser.h in Headers */,
+				F9D4680F24BF0623002E4113 /* Reachability.h in Headers */,
+				F9D4681324BF063B002E4113 /* CMPConfig.h in Headers */,
+				F9D4681B24BF0670002E4113 /* CMPServerResponse.h in Headers */,
+				F9D4682624BF06B6002E4113 /* CMPTypes.h in Headers */,
+				F9D4680A24BF05FF002E4113 /* OpenListener.h in Headers */,
+				F9D4682324BF069E002E4113 /* CMPConsentToolUtil.h in Headers */,
+				F9D4680824BF05EC002E4113 /* NetworkErrorListener.h in Headers */,
+				F9D467E424BF0491002E4113 /* CMPDataStorageV2Protocol.h in Headers */,
+				F9D467E724BF04A4002E4113 /* CMPDataStorageV2UserDefaults.h in Headers */,
+				F9D4680624BF05DC002E4113 /* CustomOpenListener.h in Headers */,
+				F9D467F524BF0534002E4113 /* CMPConsentV1Parser.h in Headers */,
+				F9D467D224BF03FE002E4113 /* CMPDataStorageConsentManagerProtocol.h in Headers */,
+				F9D467EF24BF04FB002E4113 /* CMPConsentToolViewController.h in Headers */,
+				F9D4680424BF05CB002E4113 /* CloseListener.h in Headers */,
+				F9D467F824BF054F002E4113 /* CMPConsentV2Constant.h in Headers */,
+				F9D467D524BF0411002E4113 /* CMPDataStorageConsentManagerUserDefaults.h in Headers */,
+				F9D467FF24BF057D002E4113 /* PublisherRestriction.h in Headers */,
+				F9D467D824BF0433002E4113 /* CMPDataStoragePrivateProtocol.h in Headers */,
+				F9D4680C24BF060F002E4113 /* ServerErrorListener.h in Headers */,
+				F9D467EB24BF04DE002E4113 /* CMPActivityIndicatorView.h in Headers */,
+				F9D4680224BF05BB002E4113 /* CloseListenerDelegate.h in Headers */,
+				F9D467F224BF051F002E4113 /* CMPConsentV1Constant.h in Headers */,
+				F9D467E124BF0470002E4113 /* CMPDataStorageV1UserDefaults.h in Headers */,
+				F9D467DB24BF0444002E4113 /* CMPDataStoragePrivateUserDefaults.h in Headers */,
+				F9D467B524BF01DC002E4113 /* ShowCMP.h in Headers */,
 				F957B9F3249884C80022C6AC /* BilMobileAds.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,11 +419,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9D4680024BF057D002E4113 /* PublisherRestriction.m in Sources */,
+				F9D467F624BF0534002E4113 /* CMPConsentV1Parser.m in Sources */,
+				F9D467E224BF0470002E4113 /* CMPDataStorageV1UserDefaults.m in Sources */,
+				F9D4681424BF063B002E4113 /* CMPConfig.m in Sources */,
+				F9D467B424BF01DC002E4113 /* ShowCMP.m in Sources */,
+				F9D467DC24BF0444002E4113 /* CMPDataStoragePrivateUserDefaults.m in Sources */,
 				F957BA20249888100022C6AC /* ADBanner.swift in Sources */,
+				F9D4682424BF069E002E4113 /* CMPConsentToolUtil.m in Sources */,
 				F957BA1A249887070022C6AC /* PBMobileAds.swift in Sources */,
+				F9D467D024BF03B7002E4113 /* CMPConsentTool.m in Sources */,
+				F9D467D624BF0411002E4113 /* CMPDataStorageConsentManagerUserDefaults.m in Sources */,
+				F9D467E824BF04A4002E4113 /* CMPDataStorageV2UserDefaults.m in Sources */,
+				F9D467F024BF04FB002E4113 /* CMPConsentToolViewController.m in Sources */,
+				F9D4682024BF0688002E4113 /* CMPConsentToolAPI.m in Sources */,
 				F957BA1C249887910022C6AC /* Helper.swift in Sources */,
 				F957BA222498882E0022C6AC /* ADInterstitial.swift in Sources */,
+				F9D467EC24BF04DE002E4113 /* CMPActivityIndicatorView.m in Sources */,
+				F9D4681C24BF0670002E4113 /* CMPServerResponse.m in Sources */,
 				F957BA242498884C0022C6AC /* ADRewarded.swift in Sources */,
+				F9D467FC24BF0561002E4113 /* CMPConsentV2Parser.m in Sources */,
+				F9D4681824BF0655002E4113 /* CMPSettings.m in Sources */,
+				F9D4681024BF0623002E4113 /* Reachability.m in Sources */,
 				F957BA1E249887C00022C6AC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
