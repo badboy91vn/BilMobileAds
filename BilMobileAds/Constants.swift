@@ -6,9 +6,6 @@
 //  Copyright © 2020 bil. All rights reserved.
 //
 
-import PrebidMobile
-
-
 public enum ADFormat: String {
     case html = "html" // simple
     case vast = "vast" // video

@@ -6,7 +6,6 @@
 //  Copyright © 2020 bil. All rights reserved.
 //
 
-import PrebidMobile
 import GoogleMobileAds
 
 public class PBMobileAds {
