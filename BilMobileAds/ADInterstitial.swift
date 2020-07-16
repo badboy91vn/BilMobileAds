@@ -51,8 +51,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate, CloseListenerDel
 
                             let consentStr = CMPConsentToolAPI().consentString
                             PBMobileAds.shared.log("ConsentStr: \(String(describing: consentStr))")
-                            // PBMobileAds.shared.showGDPR &&
-                            if consentStr == "" {
+                            if PBMobileAds.shared.showGDPR && consentStr == "" {
                                 let cmp = ShowCMP()
                                 cmp.closeDelegate = self
                                 cmp.open(self.adUIViewCtr, appName: PBMobileAds.shared.appName)
@@ -81,7 +80,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate, CloseListenerDel
     public func onWebViewClosed() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             PBMobileAds.shared.log("ConsentStr: \(String(describing: CMPConsentToolAPI().consentString))")
-            self.load()
+            self.preLoad()
         }
     }
     
@@ -150,6 +149,12 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate, CloseListenerDel
         // set adformat theo loại duy nhất có
         if self.adUnitObj.adInfor.count < 2 {
             self.adFormatDefault = self.adUnitObj.adInfor[0].isVideo ? .vast : .html
+        }
+        
+        // Set GDPR
+        if PBMobileAds.shared.showGDPR {
+            Targeting.shared.subjectToGDPR = true
+            Targeting.shared.gdprConsentString = CMPConsentToolAPI().consentString
         }
         
         let adInfor: AdInfor

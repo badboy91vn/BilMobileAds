@@ -59,8 +59,7 @@ public class ADBanner : NSObject, GADBannerViewDelegate, CloseListenerDelegate {
                             
                             let consentStr = CMPConsentToolAPI().consentString
                             PBMobileAds.shared.log("ConsentStr: \(String(describing: consentStr))")
-                            // PBMobileAds.shared.showGDPR &&
-                            if consentStr == "" {
+                            if PBMobileAds.shared.showGDPR && consentStr == "" {
                                 let cmp = ShowCMP()
                                 cmp.closeDelegate = self
                                 cmp.open(self.adUIViewCtr, appName: PBMobileAds.shared.appName)
@@ -138,6 +137,12 @@ public class ADBanner : NSObject, GADBannerViewDelegate, CloseListenerDelegate {
         
         // Remove Ad
         self.destroy()
+        
+        // Set GDPR
+        if PBMobileAds.shared.showGDPR {
+            Targeting.shared.subjectToGDPR = true
+            Targeting.shared.gdprConsentString = CMPConsentToolAPI().consentString
+        }
         
         let adInfor: AdInfor
         if self.adFormatDefault == .vast {
@@ -241,29 +246,29 @@ public class ADBanner : NSObject, GADBannerViewDelegate, CloseListenerDelegate {
     }
     
     func addFirstPartyData(adUnit: AdUnit) {
-        //        Access Control List
-        //        Targeting.shared.addBidderToAccessControlList(Prebid.bidderNameAppNexus)
+        // Access Control List
+        // Targeting.shared.addBidderToAccessControlList(Prebid.bidderNameAppNexus)
         
         //global user data
-        Targeting.shared.addUserData(key: "globalUserDataKey1", value: "globalUserDataValue1")
+        // Targeting.shared.addUserData(key: "globalUserDataKey1", value: "globalUserDataValue1")
         
         //global context data
-        Targeting.shared.addContextData(key: "globalContextDataKey1", value: "globalContextDataValue1")
+        // Targeting.shared.addContextData(key: "globalContextDataKey1", value: "globalContextDataValue1")
         
         //adunit context data
-        adUnit.addContextData(key: "adunitContextDataKey1", value: "adunitContextDataValue1")
+        // adUnit.addContextData(key: "adunitContextDataKey1", value: "adunitContextDataValue1")
         
         //global context keywords
-        Targeting.shared.addContextKeyword("globalContextKeywordValue1")
-        Targeting.shared.addContextKeyword("globalContextKeywordValue2")
+        // Targeting.shared.addContextKeyword("globalContextKeywordValue1")
+        // Targeting.shared.addContextKeyword("globalContextKeywordValue2")
         
         //global user keywords
-        Targeting.shared.addUserKeyword("globalUserKeywordValue1")
-        Targeting.shared.addUserKeyword("globalUserKeywordValue2")
+        // Targeting.shared.addUserKeyword("globalUserKeywordValue1")
+        // Targeting.shared.addUserKeyword("globalUserKeywordValue2")
         
         //adunit context keywords
-        adUnit.addContextKeyword("adunitContextKeywordValue1")
-        adUnit.addContextKeyword("adunitContextKeywordValue2")
+        // adUnit.addContextKeyword("adunitContextKeywordValue1")
+        // adUnit.addContextKeyword("adunitContextKeywordValue2")
     }
     
     // MARK: - Private FUNC

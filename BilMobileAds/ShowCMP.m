@@ -15,7 +15,8 @@ static CMPConsentTool *cmpConsentTool = nil;
 - (void)openCMP:(UIViewController*) uiViewCtr appName:(nonnull NSString *)appName {
     cmpConsentTool = [[CMPConsentTool alloc] init:@"consentmanager.mgr.consensu.org" addId:@"14327" addAppName:appName addLanguage:@"EN" addViewController:uiViewCtr];
     cmpConsentTool.closeDelegate = self.closeDelegate;
-    [self performSelector:@selector(showCMP) withObject:nil afterDelay:0.5];
+//    [self performSelector:@selector(showCMP) withObject:nil afterDelay:0.1];
+    [self showCMP];
 }
 
 - (void)showCMP {

@@ -28,7 +28,7 @@ enum Result<T, U> where U: Error  {
     case failure(U)
 }
 
-class Host: Decodable {
+class HostAD: Decodable {
     var pbHost: String
     var url: String?
     var pbAccountId: String
@@ -36,7 +36,7 @@ class Host: Decodable {
 }
 class AdInfor: Decodable {
     var isVideo: Bool
-    var host: Host
+    var host: HostAD
     var configId: String
     var adUnitID: String
 }

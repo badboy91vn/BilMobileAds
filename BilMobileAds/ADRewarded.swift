@@ -51,8 +51,7 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate, CloseListenerDelegate 
                             
                             let consentStr = CMPConsentToolAPI().consentString
                             PBMobileAds.shared.log("ConsentStr: \(String(describing: consentStr))")
-                            // PBMobileAds.shared.showGDPR &&
-                            if consentStr == "" {
+                            if PBMobileAds.shared.showGDPR && consentStr == "" {
                                 let cmp = ShowCMP()
                                 cmp.closeDelegate = self
                                 cmp.open(self.adUIViewCtr, appName: PBMobileAds.shared.appName)
@@ -81,7 +80,7 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate, CloseListenerDelegate 
     public func onWebViewClosed() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             PBMobileAds.shared.log("ConsentStr: \(String(describing: CMPConsentToolAPI().consentString))")
-            self.load()
+            self.preLoad()
         }
     }
     
@@ -159,6 +158,12 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate, CloseListenerDelegate 
         if !self.adUnitObj.isActive {
             PBMobileAds.shared.log("Ad is not actived")
             return
+        }
+        
+        // Set GDPR
+        if PBMobileAds.shared.showGDPR {
+            Targeting.shared.subjectToGDPR = true
+            Targeting.shared.gdprConsentString = CMPConsentToolAPI().consentString
         }
         
         let adInfor: AdInfor

@@ -85,27 +85,6 @@
     }
 }
 
-//- (void)openCmpConsentToolView:(CloseListenerDelegate *) closeDelegate{
-//    [openListener onWebViewOpened];
-//    [[CMPDataStorageV1UserDefaults alloc] setCmpPresent:TRUE];
-//
-//    if(customOpenListener){
-//        [customOpenListener onOpenCMPConsentToolActivity:cmpServerResponse withSettings:[CMPSettings self]];
-//        return;
-//    }
-//    if( [CMPConfig isValid]){
-//        CMPConsentToolViewController *consentToolVC = [[CMPConsentToolViewController alloc] init];
-////        consentToolVC.closeListener = closeListener;
-//        consentToolVC.networkErrorListener = networkErrorListener;
-//        consentToolVC.consentToolAPI.subjectToGDPR = SubjectToGDPR_Yes;
-//        consentToolVC.consentToolAPI.cmpPresent = YES;
-//        consentToolVC.delegate = self;
-//        consentToolVC.closeDelegate = closeDelegate;
-//
-//        [self.viewController presentViewController:consentToolVC animated:YES completion:nil];
-//    }
-//}
-
 #pragma mark CMPConsentToolViewController delegate
 -(void)consentToolViewController:(CMPConsentToolViewController *)consentToolViewController didReceiveConsentString:(NSString *)consentString {
     [consentToolViewController dismissViewControllerAnimated:YES completion:nil];
@@ -256,7 +235,7 @@
                     [CMPSettings setSubjectToGdpr:SubjectToGDPR_No];
                 }
                 [CMPSettings setConsentString:nil];
-                [self openCmpConsentToolView];
+                // [self openCmpConsentToolView];
                 return;
             default:
                 [self showErrorMessage:cmpServerResponse.message];

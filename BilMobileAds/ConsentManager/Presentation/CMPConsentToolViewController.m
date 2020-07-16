@@ -71,6 +71,16 @@ static bool error = FALSE;
             error = true;
             return;
         }
+    } else {
+        _cmpServerResponse = [CMPConsentToolUtil getAndSaveServerResponse:_networkErrorListener  withConsent:[[CMPDataStorageConsentManagerUserDefaults alloc] consentString]];
+        if( !_cmpServerResponse || !_cmpServerResponse.url || [_cmpServerResponse.url isEqualToString:@""]){
+            NSLog(@"The Response is not valid. Resetting Settings...");
+            [[CMPDataStorageV1UserDefaults alloc] clearContents];
+            [[CMPDataStorageV2UserDefaults alloc] clearContents];
+            [[CMPDataStorageConsentManagerUserDefaults alloc] clearContents];
+            error = true;
+            return;
+        }
     }
     
     if( [CMPConsentToolUtil isNetworkAvailable] ){

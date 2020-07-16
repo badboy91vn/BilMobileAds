@@ -54,7 +54,7 @@ public class PBMobileAds {
     }
     
     // MARK: Setup PBS
-    func setupPBS(host: Host) {
+    func setupPBS(host: HostAD) {
         PBMobileAds.shared.log("Host: \(host.pbHost) | AccountId: \(host.pbAccountId) | storedAuctionResponse: \(host.storedAuctionResponse)")
         
         if host.pbHost == "Appnexus" {
@@ -85,7 +85,7 @@ public class PBMobileAds {
                 self.log("Fetch Data Succ")
                 
                 DispatchQueue.main.async{
-                    self.showGDPR = dataJSON.showGDPR ?? false;
+                    self.showGDPR = dataJSON.showGDPR ?? true;
                     self.pbServerEndPoint = dataJSON.pbServerEndPoint
                     
                     self.listAdUnitObj.append(dataJSON.adunit)
@@ -128,8 +128,8 @@ public class PBMobileAds {
 
 }
 
-internal extension Date {
-    func toString() -> String {
-        return Helper.dateFormatter.string(from: self as Date)
-    }
-}
+//internal extension Date {
+//    func toString() -> String {
+//        return Helper.dateFormatter.string(from: self as Date)
+//    }
+//}

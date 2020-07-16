@@ -62,6 +62,37 @@
 		F9D4682324BF069E002E4113 /* CMPConsentToolUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4682124BF069E002E4113 /* CMPConsentToolUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9D4682424BF069E002E4113 /* CMPConsentToolUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D4682224BF069E002E4113 /* CMPConsentToolUtil.m */; };
 		F9D4682624BF06B6002E4113 /* CMPTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D4682524BF06B6002E4113 /* CMPTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D46A3C24C01500002E4113 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A2C24C014FF002E4113 /* Reachability.swift */; };
+		F9D46A3D24C01500002E4113 /* ConstantsOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A2D24C014FF002E4113 /* ConstantsOld.swift */; };
+		F9D46A3E24C01500002E4113 /* StorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A2E24C014FF002E4113 /* StorageUtils.swift */; };
+		F9D46A3F24C01500002E4113 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A2F24C014FF002E4113 /* RequestBuilder.swift */; };
+		F9D46A4024C01500002E4113 /* PrebidMobile.h in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3024C014FF002E4113 /* PrebidMobile.h */; };
+		F9D46A4124C01500002E4113 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3124C014FF002E4113 /* Logging.swift */; };
+		F9D46A4224C01500002E4113 /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3224C014FF002E4113 /* Host.swift */; };
+		F9D46A4324C01500002E4113 /* Targeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3324C01500002E4113 /* Targeting.swift */; };
+		F9D46A4424C01500002E4113 /* ResultCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3424C01500002E4113 /* ResultCode.swift */; };
+		F9D46A4524C01500002E4113 /* Prebid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3524C01500002E4113 /* Prebid.swift */; };
+		F9D46A4624C01500002E4113 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3624C01500002E4113 /* Dispatcher.swift */; };
+		F9D46A4724C01500002E4113 /* BidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3724C01500002E4113 /* BidResponse.swift */; };
+		F9D46A4824C01500002E4113 /* BidManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3824C01500002E4113 /* BidManager.swift */; };
+		F9D46A4924C01500002E4113 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3924C01500002E4113 /* Global.swift */; };
+		F9D46A4A24C01500002E4113 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3A24C01500002E4113 /* Location.swift */; };
+		F9D46A4B24C01500002E4113 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A3B24C01500002E4113 /* CollectionExtension.swift */; };
+		F9D46A5624C01528002E4113 /* VideoBaseAdUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A4C24C01527002E4113 /* VideoBaseAdUnit.swift */; };
+		F9D46A5724C01528002E4113 /* VideoAdUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A4D24C01528002E4113 /* VideoAdUnit.swift */; };
+		F9D46A5824C01528002E4113 /* InterstitialAdUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A4E24C01528002E4113 /* InterstitialAdUnit.swift */; };
+		F9D46A5924C01528002E4113 /* AdUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A4F24C01528002E4113 /* AdUnit.swift */; };
+		F9D46A5A24C01528002E4113 /* BannerBaseAdUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A5024C01528002E4113 /* BannerBaseAdUnit.swift */; };
+		F9D46A5B24C01528002E4113 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A5124C01528002E4113 /* Utils.swift */; };
+		F9D46A5C24C01528002E4113 /* Signals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A5224C01528002E4113 /* Signals.swift */; };
+		F9D46A5D24C01528002E4113 /* RewardedVideoAdUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A5324C01528002E4113 /* RewardedVideoAdUnit.swift */; };
+		F9D46A5E24C01528002E4113 /* VideoInterstitialAdUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A5424C01528002E4113 /* VideoInterstitialAdUnit.swift */; };
+		F9D46A5F24C01528002E4113 /* BannerAdUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A5524C01528002E4113 /* BannerAdUnit.swift */; };
+		F9D46A6324C01539002E4113 /* NativeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A6024C01539002E4113 /* NativeRequest.swift */; };
+		F9D46A6424C01539002E4113 /* NativeAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A6124C01539002E4113 /* NativeAsset.swift */; };
+		F9D46A6524C01539002E4113 /* NativeEventTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A6224C01539002E4113 /* NativeEventTracker.swift */; };
+		F9D46A6824C01552002E4113 /* PbFindSizeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A6624C01552002E4113 /* PbFindSizeError.swift */; };
+		F9D46A6924C01552002E4113 /* AdViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D46A6724C01552002E4113 /* AdViewUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +155,37 @@
 		F9D4682124BF069E002E4113 /* CMPConsentToolUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPConsentToolUtil.h; sourceTree = "<group>"; };
 		F9D4682224BF069E002E4113 /* CMPConsentToolUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPConsentToolUtil.m; sourceTree = "<group>"; };
 		F9D4682524BF06B6002E4113 /* CMPTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPTypes.h; sourceTree = "<group>"; };
+		F9D46A2C24C014FF002E4113 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F9D46A2D24C014FF002E4113 /* ConstantsOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsOld.swift; sourceTree = "<group>"; };
+		F9D46A2E24C014FF002E4113 /* StorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUtils.swift; sourceTree = "<group>"; };
+		F9D46A2F24C014FF002E4113 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		F9D46A3024C014FF002E4113 /* PrebidMobile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrebidMobile.h; sourceTree = "<group>"; };
+		F9D46A3124C014FF002E4113 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		F9D46A3224C014FF002E4113 /* Host.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
+		F9D46A3324C01500002E4113 /* Targeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Targeting.swift; sourceTree = "<group>"; };
+		F9D46A3424C01500002E4113 /* ResultCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCode.swift; sourceTree = "<group>"; };
+		F9D46A3524C01500002E4113 /* Prebid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prebid.swift; sourceTree = "<group>"; };
+		F9D46A3624C01500002E4113 /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		F9D46A3724C01500002E4113 /* BidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidResponse.swift; sourceTree = "<group>"; };
+		F9D46A3824C01500002E4113 /* BidManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidManager.swift; sourceTree = "<group>"; };
+		F9D46A3924C01500002E4113 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		F9D46A3A24C01500002E4113 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		F9D46A3B24C01500002E4113 /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
+		F9D46A4C24C01527002E4113 /* VideoBaseAdUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoBaseAdUnit.swift; sourceTree = "<group>"; };
+		F9D46A4D24C01528002E4113 /* VideoAdUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAdUnit.swift; sourceTree = "<group>"; };
+		F9D46A4E24C01528002E4113 /* InterstitialAdUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAdUnit.swift; sourceTree = "<group>"; };
+		F9D46A4F24C01528002E4113 /* AdUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdUnit.swift; sourceTree = "<group>"; };
+		F9D46A5024C01528002E4113 /* BannerBaseAdUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerBaseAdUnit.swift; sourceTree = "<group>"; };
+		F9D46A5124C01528002E4113 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F9D46A5224C01528002E4113 /* Signals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signals.swift; sourceTree = "<group>"; };
+		F9D46A5324C01528002E4113 /* RewardedVideoAdUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedVideoAdUnit.swift; sourceTree = "<group>"; };
+		F9D46A5424C01528002E4113 /* VideoInterstitialAdUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInterstitialAdUnit.swift; sourceTree = "<group>"; };
+		F9D46A5524C01528002E4113 /* BannerAdUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdUnit.swift; sourceTree = "<group>"; };
+		F9D46A6024C01539002E4113 /* NativeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeRequest.swift; sourceTree = "<group>"; };
+		F9D46A6124C01539002E4113 /* NativeAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAsset.swift; sourceTree = "<group>"; };
+		F9D46A6224C01539002E4113 /* NativeEventTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeEventTracker.swift; sourceTree = "<group>"; };
+		F9D46A6624C01552002E4113 /* PbFindSizeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PbFindSizeError.swift; sourceTree = "<group>"; };
+		F9D46A6724C01552002E4113 /* AdViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViewUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +238,7 @@
 		F957B9F0249884C80022C6AC /* BilMobileAds */ = {
 			isa = PBXGroup;
 			children = (
+				F9D46A2824C014D2002E4113 /* PrebidMobile */,
 				F9D467C724BF035D002E4113 /* ConsentManager */,
 				F957B9F1249884C80022C6AC /* BilMobileAds.h */,
 				F957B9F2249884C80022C6AC /* Info.plist */,
@@ -281,6 +344,68 @@
 				F9D4682524BF06B6002E4113 /* CMPTypes.h */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		F9D46A2824C014D2002E4113 /* PrebidMobile */ = {
+			isa = PBXGroup;
+			children = (
+				F9D46A2B24C014EE002E4113 /* Addendum */,
+				F9D46A2924C014DB002E4113 /* AdUnits */,
+				F9D46A3824C01500002E4113 /* BidManager.swift */,
+				F9D46A3724C01500002E4113 /* BidResponse.swift */,
+				F9D46A3B24C01500002E4113 /* CollectionExtension.swift */,
+				F9D46A2D24C014FF002E4113 /* ConstantsOld.swift */,
+				F9D46A3624C01500002E4113 /* Dispatcher.swift */,
+				F9D46A3924C01500002E4113 /* Global.swift */,
+				F9D46A3224C014FF002E4113 /* Host.swift */,
+				F9D46A3A24C01500002E4113 /* Location.swift */,
+				F9D46A3124C014FF002E4113 /* Logging.swift */,
+				F9D46A3524C01500002E4113 /* Prebid.swift */,
+				F9D46A3024C014FF002E4113 /* PrebidMobile.h */,
+				F9D46A2C24C014FF002E4113 /* Reachability.swift */,
+				F9D46A2F24C014FF002E4113 /* RequestBuilder.swift */,
+				F9D46A3424C01500002E4113 /* ResultCode.swift */,
+				F9D46A2E24C014FF002E4113 /* StorageUtils.swift */,
+				F9D46A3324C01500002E4113 /* Targeting.swift */,
+			);
+			path = PrebidMobile;
+			sourceTree = "<group>";
+		};
+		F9D46A2924C014DB002E4113 /* AdUnits */ = {
+			isa = PBXGroup;
+			children = (
+				F9D46A2A24C014E5002E4113 /* Native */,
+				F9D46A4F24C01528002E4113 /* AdUnit.swift */,
+				F9D46A5524C01528002E4113 /* BannerAdUnit.swift */,
+				F9D46A5024C01528002E4113 /* BannerBaseAdUnit.swift */,
+				F9D46A4E24C01528002E4113 /* InterstitialAdUnit.swift */,
+				F9D46A5324C01528002E4113 /* RewardedVideoAdUnit.swift */,
+				F9D46A5224C01528002E4113 /* Signals.swift */,
+				F9D46A5124C01528002E4113 /* Utils.swift */,
+				F9D46A4D24C01528002E4113 /* VideoAdUnit.swift */,
+				F9D46A4C24C01527002E4113 /* VideoBaseAdUnit.swift */,
+				F9D46A5424C01528002E4113 /* VideoInterstitialAdUnit.swift */,
+			);
+			path = AdUnits;
+			sourceTree = "<group>";
+		};
+		F9D46A2A24C014E5002E4113 /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				F9D46A6124C01539002E4113 /* NativeAsset.swift */,
+				F9D46A6224C01539002E4113 /* NativeEventTracker.swift */,
+				F9D46A6024C01539002E4113 /* NativeRequest.swift */,
+			);
+			path = Native;
+			sourceTree = "<group>";
+		};
+		F9D46A2B24C014EE002E4113 /* Addendum */ = {
+			isa = PBXGroup;
+			children = (
+				F9D46A6724C01552002E4113 /* AdViewUtils.swift */,
+				F9D46A6624C01552002E4113 /* PbFindSizeError.swift */,
+			);
+			path = Addendum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +544,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9D46A6824C01552002E4113 /* PbFindSizeError.swift in Sources */,
+				F9D46A6924C01552002E4113 /* AdViewUtils.swift in Sources */,
+				F9D46A6324C01539002E4113 /* NativeRequest.swift in Sources */,
+				F9D46A6424C01539002E4113 /* NativeAsset.swift in Sources */,
+				F9D46A6524C01539002E4113 /* NativeEventTracker.swift in Sources */,
+				F9D46A5624C01528002E4113 /* VideoBaseAdUnit.swift in Sources */,
+				F9D46A5724C01528002E4113 /* VideoAdUnit.swift in Sources */,
+				F9D46A5824C01528002E4113 /* InterstitialAdUnit.swift in Sources */,
+				F9D46A5924C01528002E4113 /* AdUnit.swift in Sources */,
+				F9D46A5A24C01528002E4113 /* BannerBaseAdUnit.swift in Sources */,
+				F9D46A5B24C01528002E4113 /* Utils.swift in Sources */,
+				F9D46A5C24C01528002E4113 /* Signals.swift in Sources */,
+				F9D46A5D24C01528002E4113 /* RewardedVideoAdUnit.swift in Sources */,
+				F9D46A5E24C01528002E4113 /* VideoInterstitialAdUnit.swift in Sources */,
+				F9D46A5F24C01528002E4113 /* BannerAdUnit.swift in Sources */,
+				F9D46A3C24C01500002E4113 /* Reachability.swift in Sources */,
+				F9D46A3D24C01500002E4113 /* ConstantsOld.swift in Sources */,
+				F9D46A3E24C01500002E4113 /* StorageUtils.swift in Sources */,
+				F9D46A3F24C01500002E4113 /* RequestBuilder.swift in Sources */,
+				F9D46A4024C01500002E4113 /* PrebidMobile.h in Sources */,
+				F9D46A4124C01500002E4113 /* Logging.swift in Sources */,
+				F9D46A4224C01500002E4113 /* Host.swift in Sources */,
+				F9D46A4324C01500002E4113 /* Targeting.swift in Sources */,
+				F9D46A4424C01500002E4113 /* ResultCode.swift in Sources */,
+				F9D46A4524C01500002E4113 /* Prebid.swift in Sources */,
+				F9D46A4624C01500002E4113 /* Dispatcher.swift in Sources */,
+				F9D46A4724C01500002E4113 /* BidResponse.swift in Sources */,
+				F9D46A4824C01500002E4113 /* BidManager.swift in Sources */,
+				F9D46A4924C01500002E4113 /* Global.swift in Sources */,
+				F9D46A4A24C01500002E4113 /* Location.swift in Sources */,
+				F9D46A4B24C01500002E4113 /* CollectionExtension.swift in Sources */,
 				F9D4680024BF057D002E4113 /* PublisherRestriction.m in Sources */,
 				F9D467F624BF0534002E4113 /* CMPConsentV1Parser.m in Sources */,
 				F9D467E224BF0470002E4113 /* CMPDataStorageV1UserDefaults.m in Sources */,
