@@ -89,22 +89,23 @@
 -(void)consentToolViewController:(CMPConsentToolViewController *)consentToolViewController didReceiveConsentString:(NSString *)consentString {
     [consentToolViewController dismissViewControllerAnimated:YES completion:nil];
     
-    if( consentString.length > 0){
-        [[CMPDataStorageConsentManagerUserDefaults alloc] setConsentString:consentString];
-        NSString *base64Decoded = [CMPConsentToolUtil binaryStringConsentFrom:consentString];
+    if(consentString.length > 0){
+        [self proceedConsentString:consentString];
         
-        NSLog(@"%@", base64Decoded);
-        NSArray *splits = [base64Decoded componentsSeparatedByString:@"#"];
-        
-        if( splits.count > 3){
-            NSLog(@"ConsentManager String detected");
-            [self proceedConsentString:[splits objectAtIndex:0]];
-            [self proceedConsentManagerValues:splits];
-        } else {
-            [[CMPDataStorageV1UserDefaults alloc] clearContents];
-            [[CMPDataStorageV2UserDefaults alloc] clearContents];
-            [[CMPDataStorageConsentManagerUserDefaults alloc] clearContents];
-        }
+        // My CMP
+//        [[CMPDataStorageConsentManagerUserDefaults alloc] setConsentString:consentString];
+//        NSString *base64Decoded = [CMPConsentToolUtil binaryStringConsentFrom:consentString];
+//        NSLog(@"%@", base64Decoded);
+//        NSArray *splits = [base64Decoded componentsSeparatedByString:@"#"];
+//        if( splits.count > 3){
+//            NSLog(@"ConsentManager String detected");
+//            [self proceedConsentString:[splits objectAtIndex:0]];
+//            [self proceedConsentManagerValues:splits];
+//        } else {
+//            [[CMPDataStorageV1UserDefaults alloc] clearContents];
+//            [[CMPDataStorageV2UserDefaults alloc] clearContents];
+//            [[CMPDataStorageConsentManagerUserDefaults alloc] clearContents];
+//        }
     } else {
         [[CMPDataStorageV1UserDefaults alloc] clearContents];
         [[CMPDataStorageV2UserDefaults alloc] clearContents];

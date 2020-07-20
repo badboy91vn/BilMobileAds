@@ -14,7 +14,9 @@
 #import "CMPServerResponse.h"
 #import <WebKit/WebKit.h>
 
-NSString *const ConsentStringPrefix = @"consent://";
+// My CMP
+//NSString *const ConsentStringPrefix = @"consent://";
+NSString *const ConsentStringPrefix = @"euconsent=";
 NSString *const ConsentStringQueryParam = @"code64";
 
 @interface CMPConsentToolViewController ()<WKNavigationDelegate>
@@ -30,7 +32,7 @@ static bool error = FALSE;
     [super viewDidLoad];
     [self initWebView];
     if( ! error ){
-      [self initActivityIndicator];
+        [self initActivityIndicator];
     }
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -49,7 +51,6 @@ static bool error = FALSE;
 }
 
 -(void)initWebView {
-    
     if( ![CMPConfig isValid] ){
         [[CMPDataStorageV1UserDefaults alloc] clearContents];
         [[CMPDataStorageV2UserDefaults alloc] clearContents];
@@ -88,6 +89,7 @@ static bool error = FALSE;
         _webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
         _webView.navigationDelegate = self;
         _webView.scrollView.scrollEnabled = YES;
+        _webView.configuration.preferences.javaScriptEnabled = YES;
         [self.view addSubview:_webView];
         [self layoutWebView];
     } else {
@@ -106,15 +108,15 @@ static bool error = FALSE;
     if (@available(iOS 11, *)) {
         UILayoutGuide *guide = self.view.safeAreaLayoutGuide;
         [NSLayoutConstraint activateConstraints:@[
-                                                  [self.webView.topAnchor constraintEqualToAnchor:guide.topAnchor],
-                                                  [self.webView.leadingAnchor constraintEqualToAnchor:guide.leadingAnchor],
-                                                  [self.webView.trailingAnchor constraintEqualToAnchor:guide.trailingAnchor],
-                                                  [self.webView.bottomAnchor constraintEqualToAnchor:guide.bottomAnchor]
-                                                  ]];
+            [self.webView.topAnchor constraintEqualToAnchor:guide.topAnchor],
+            [self.webView.leadingAnchor constraintEqualToAnchor:guide.leadingAnchor],
+            [self.webView.trailingAnchor constraintEqualToAnchor:guide.trailingAnchor],
+            [self.webView.bottomAnchor constraintEqualToAnchor:guide.bottomAnchor]
+        ]];
     } else {
         id topAnchor = self.view.safeAreaLayoutGuide.topAnchor;
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_webView, topAnchor);
-
+        
         [self.view addConstraints:[NSLayoutConstraint
                                    constraintsWithVisualFormat:@"V:[topGuide]-[_webView]-0-|"
                                    options:NSLayoutFormatDirectionLeadingToTrailing
@@ -141,17 +143,18 @@ static bool error = FALSE;
     NSURLRequest *request = navigationAction.request;
     
     // new base64-encoded consent string received
-    if ([request.URL.absoluteString.lowercaseString hasPrefix:ConsentStringPrefix]) {
+    // My CMP
+//    if ([request.URL.absoluteString.lowercaseString hasPrefix:ConsentStringPrefix]) {
+    if ([request.URL.absoluteString.lowercaseString rangeOfString:ConsentStringPrefix].location != NSNotFound) {
         NSString *newConsentString = [self consentStringFromRequest:request];
-        
         
         if ([self.delegate respondsToSelector:@selector(consentToolViewController:didReceiveConsentString:)]) {
             [self.delegate consentToolViewController:self didReceiveConsentString:newConsentString];
         }
         [self.closeListener onWebViewClosed];
-        [self.closeDelegate onWebViewClosed];
+        [self.closeDelegate onWebViewClosed:newConsentString];
     }
-
+    
     decisionHandler(policy);
 }
 
@@ -163,9 +166,11 @@ static bool error = FALSE;
     if (_cmpServerResponse.url) {
         if (self.consentToolAPI.consentString.length > 0) {
             return [NSURLRequest requestWithURL:[self base64URLEncodedWithURL:[NSURL URLWithString:_cmpServerResponse.url]
-                queryValue:_consentToolAPI.consentString]];
+                                                                   queryValue:_consentToolAPI.consentString]];
         }
-        return [NSURLRequest requestWithURL:[NSURL URLWithString:_cmpServerResponse.url]];
+        // My CMP
+        return [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://slopex.net/cj/consent.html#cmpscreen"]];
+//         return [NSURLRequest requestWithURL:[NSURL URLWithString:_cmpServerResponse.url]];
     }
     return nil;
 }
@@ -178,13 +183,32 @@ static bool error = FALSE;
 }
 
 -(NSString*)consentStringFromRequest:(NSURLRequest *)request {
-    NSRange consentStringRange = [request.URL.absoluteString rangeOfString:ConsentStringPrefix options:NSBackwardsSearch];
-    if (consentStringRange.location != NSNotFound) {
-        NSString *responseString = [request.URL.absoluteString substringFromIndex:consentStringRange.location + consentStringRange.length];
-        NSArray *response = [responseString componentsSeparatedByString:@"/"];
-        NSString *consentString = response.firstObject;
-        return consentString;
+    // My CMP
+    NSArray *paramQuery = [[request.URL.query stringByRemovingPercentEncoding] componentsSeparatedByString:@";"];
+    for (NSString *param in paramQuery) {
+        NSRange consentStringRange = [param rangeOfString:ConsentStringPrefix];
+        if (consentStringRange.location != NSNotFound) {
+            NSString *consentString = [param substringFromIndex:consentStringRange.location + consentStringRange.length];
+            return consentString;
+        }
     }
+//    NSRange consentStringRange = [paramQuery rangeOfString:ConsentStringPrefix options:NSBackwardsSearch];
+//    if (consentStringRange.location != NSNotFound) {
+//        NSString *responseString = [paramQuery substringFromIndex:consentStringRange.location + consentStringRange.length];
+//        NSArray *response = [responseString componentsSeparatedByString:@"/"];
+//        NSString *consentString = response.firstObject;
+//        return consentString;
+//    }
+    
+//    NSRange consentStringRange = [request.URL.absoluteString rangeOfString:ConsentStringPrefix options:NSBackwardsSearch];
+//    if (consentStringRange.location != NSNotFound) {
+//        NSString *responseString = [request.URL.absoluteString substringFromIndex:consentStringRange.location + consentStringRange.length];
+//        NSArray *response = [responseString componentsSeparatedByString:@"/"];
+//        NSString *consentString = response.firstObject;
+//        return consentString;
+//    }
+
+
     
     return nil;
 }

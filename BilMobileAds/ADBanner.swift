@@ -81,9 +81,9 @@ public class ADBanner : NSObject, GADBannerViewDelegate, CloseListenerDelegate {
         self.destroy()
     }
     
-    public func onWebViewClosed() {
+    public func onWebViewClosed(_ consentStr: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            PBMobileAds.shared.log("ConsentStr: \(String(describing: CMPConsentToolAPI().consentString))")
+            PBMobileAds.shared.log("ConsentStr: \(String(describing: consentStr))")
             self.load()
         }
     }

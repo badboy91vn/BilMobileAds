@@ -8,6 +8,6 @@
 
 @protocol CloseListenerDelegate <NSObject>
 
-- (void)onWebViewClosed;
+- (void)onWebViewClosed:(NSString *)consentStr;
 
 @end
