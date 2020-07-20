@@ -90,22 +90,23 @@
     [consentToolViewController dismissViewControllerAnimated:YES completion:nil];
     
     if(consentString.length > 0){
+        // My CMP
         [self proceedConsentString:consentString];
         
-        // My CMP
-//        [[CMPDataStorageConsentManagerUserDefaults alloc] setConsentString:consentString];
-//        NSString *base64Decoded = [CMPConsentToolUtil binaryStringConsentFrom:consentString];
-//        NSLog(@"%@", base64Decoded);
-//        NSArray *splits = [base64Decoded componentsSeparatedByString:@"#"];
-//        if( splits.count > 3){
-//            NSLog(@"ConsentManager String detected");
-//            [self proceedConsentString:[splits objectAtIndex:0]];
-//            [self proceedConsentManagerValues:splits];
-//        } else {
-//            [[CMPDataStorageV1UserDefaults alloc] clearContents];
-//            [[CMPDataStorageV2UserDefaults alloc] clearContents];
-//            [[CMPDataStorageConsentManagerUserDefaults alloc] clearContents];
-//        }
+
+        //        [[CMPDataStorageConsentManagerUserDefaults alloc] setConsentString:consentString];
+        //        NSString *base64Decoded = [CMPConsentToolUtil binaryStringConsentFrom:consentString];
+        //        NSLog(@"%@", base64Decoded);
+        //        NSArray *splits = [base64Decoded componentsSeparatedByString:@"#"];
+        //        if( splits.count > 3){
+        //            NSLog(@"ConsentManager String detected");
+        //            [self proceedConsentString:[splits objectAtIndex:0]];
+        //            [self proceedConsentManagerValues:splits];
+        //        } else {
+        //            [[CMPDataStorageV1UserDefaults alloc] clearContents];
+        //            [[CMPDataStorageV2UserDefaults alloc] clearContents];
+        //            [[CMPDataStorageConsentManagerUserDefaults alloc] clearContents];
+        //        }
     } else {
         [[CMPDataStorageV1UserDefaults alloc] clearContents];
         [[CMPDataStorageV2UserDefaults alloc] clearContents];
