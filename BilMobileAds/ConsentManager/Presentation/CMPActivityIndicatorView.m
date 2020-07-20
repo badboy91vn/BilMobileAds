@@ -18,7 +18,7 @@
         _backgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.6];
         [self addSubview:_backgroundView];
         
-        _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
+        _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         _activityIndicatorView.center = self.center;
         _activityIndicatorView.frame = CGRectIntegral(_activityIndicatorView.frame);
         _activityIndicatorView.hidesWhenStopped = YES;
