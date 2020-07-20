@@ -125,6 +125,9 @@ public class PBMobileAds {
         Targeting.shared.subjectToCOPPA = false
     }
 
+    public func setGender(gender: Gender) {
+        Targeting.shared.gender = gender;
+    }
 }
 
 //internal extension Date {
