@@ -93,7 +93,6 @@
         // My CMP
         [self proceedConsentString:consentString];
         
-
         //        [[CMPDataStorageConsentManagerUserDefaults alloc] setConsentString:consentString];
         //        NSString *base64Decoded = [CMPConsentToolUtil binaryStringConsentFrom:consentString];
         //        NSLog(@"%@", base64Decoded);
