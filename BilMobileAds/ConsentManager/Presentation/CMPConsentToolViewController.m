@@ -192,23 +192,21 @@ static bool error = FALSE;
             return consentString;
         }
     }
-//    NSRange consentStringRange = [paramQuery rangeOfString:ConsentStringPrefix options:NSBackwardsSearch];
-//    if (consentStringRange.location != NSNotFound) {
-//        NSString *responseString = [paramQuery substringFromIndex:consentStringRange.location + consentStringRange.length];
-//        NSArray *response = [responseString componentsSeparatedByString:@"/"];
-//        NSString *consentString = response.firstObject;
-//        return consentString;
-//    }
-    
-//    NSRange consentStringRange = [request.URL.absoluteString rangeOfString:ConsentStringPrefix options:NSBackwardsSearch];
-//    if (consentStringRange.location != NSNotFound) {
-//        NSString *responseString = [request.URL.absoluteString substringFromIndex:consentStringRange.location + consentStringRange.length];
-//        NSArray *response = [responseString componentsSeparatedByString:@"/"];
-//        NSString *consentString = response.firstObject;
-//        return consentString;
-//    }
-
-
+    //    NSRange consentStringRange = [paramQuery rangeOfString:ConsentStringPrefix options:NSBackwardsSearch];
+    //    if (consentStringRange.location != NSNotFound) {
+    //        NSString *responseString = [paramQuery substringFromIndex:consentStringRange.location + consentStringRange.length];
+    //        NSArray *response = [responseString componentsSeparatedByString:@"/"];
+    //        NSString *consentString = response.firstObject;
+    //        return consentString;
+    //    }
+        
+    //    NSRange consentStringRange = [request.URL.absoluteString rangeOfString:ConsentStringPrefix options:NSBackwardsSearch];
+    //    if (consentStringRange.location != NSNotFound) {
+    //        NSString *responseString = [request.URL.absoluteString substringFromIndex:consentStringRange.location + consentStringRange.length];
+    //        NSArray *response = [responseString componentsSeparatedByString:@"/"];
+    //        NSString *consentString = response.firstObject;
+    //        return consentString;
+    //    }
     
     return nil;
 }
