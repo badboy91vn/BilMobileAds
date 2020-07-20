@@ -144,7 +144,7 @@ static bool error = FALSE;
     
     // new base64-encoded consent string received
     // My CMP
-//    if ([request.URL.absoluteString.lowercaseString hasPrefix:ConsentStringPrefix]) {
+    // if ([request.URL.absoluteString.lowercaseString hasPrefix:ConsentStringPrefix]) {
     if ([request.URL.absoluteString.lowercaseString rangeOfString:ConsentStringPrefix].location != NSNotFound) {
         NSString *newConsentString = [self consentStringFromRequest:request];
         
@@ -170,7 +170,7 @@ static bool error = FALSE;
         }
         // My CMP
         return [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://slopex.net/cj/consent.html#cmpscreen"]];
-//         return [NSURLRequest requestWithURL:[NSURL URLWithString:_cmpServerResponse.url]];
+        // return [NSURLRequest requestWithURL:[NSURL URLWithString:_cmpServerResponse.url]];
     }
     return nil;
 }
