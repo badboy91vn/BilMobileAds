@@ -238,7 +238,7 @@
                     [CMPSettings setSubjectToGdpr:SubjectToGDPR_No];
                 }
                 [CMPSettings setConsentString:nil];
-                // [self openCmpConsentToolView];
+//                [self openCmpConsentToolView];
                 return;
             default:
                 [self showErrorMessage:cmpServerResponse.message];
