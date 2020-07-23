@@ -279,15 +279,13 @@
     if(consentS == nil || [consentS length] == 0) {
         // Reject -> Answer after 14d
         if(lastDate != nil || [lastDate length] > 0){
-            BOOL show = [self compareNowLessFuture:lastDate];
-            return show;
+            return [self compareNowLessFuture:lastDate];
         }
         // First Time
         return TRUE;
     } else {
         // Accepted -> Answer after 365d
-        BOOL show = [self compareNowLessFuture:lastDate];
-        return show;
+        return [self compareNowLessFuture:lastDate];
     }
 }
 
