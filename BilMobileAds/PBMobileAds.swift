@@ -62,7 +62,7 @@ public class PBMobileAds {
             Prebid.shared.prebidServerHost = PrebidHost.Rubicon
         } else if host.pbHost == "Custom" {
             do {
-                PBMobileAds.shared.log("Custom URL: \(String(describing: self.pbServerEndPoint ?? ""))")
+                PBMobileAds.shared.log("Custom URL: \(String(describing: self.pbServerEndPoint))")
                 try Prebid.shared.setCustomPrebidServer(url: self.pbServerEndPoint)
                 Prebid.shared.prebidServerHost = PrebidHost.Custom
             } catch {

@@ -48,17 +48,14 @@ public class ADRewarded: NSObject, GADRewardedAdDelegate, CloseListenerDelegate 
                         DispatchQueue.main.async{
                             self.adUnitObj = data
                             
-                            let consentStr = CMPConsentToolAPI().consentString
-                            PBMobileAds.shared.log("ConsentStr: \(String(describing: consentStr))")
-                            if PBMobileAds.shared.showGDPR && consentStr == "" {
+                            if PBMobileAds.shared.showGDPR && CMPConsentTool().needShowCMP() {
                                 let cmp = ShowCMP()
                                 cmp.closeDelegate = self
                                 cmp.open(self.adUIViewCtr, appName: PBMobileAds.shared.appName)
                             } else {
-                                self.preLoad()
+                                self.load()
                             }
                         }
-                        
                         break
                     case .failure(let err):
                         PBMobileAds.shared.log("getADConfig placement: \(String(describing: self.placement)) Fail \(err.localizedDescription)")
