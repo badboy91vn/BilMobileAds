@@ -102,6 +102,8 @@ This Delegate will be called, if the View of the consentTool will be closed
  */
 - (NSString*)getUSPrivacyString;
 
+- (BOOL)needShowCMP;
+
 /**
  Returns if a given Vendor has the rights to set cookies
  */

@@ -134,21 +134,27 @@ NSString *const RESPONSE_URL_KEY = @"url";
 }
 
 +(CMPServerResponse*)getAndSaveServerResponse:(NetworkErrorListener *)networkErrorListener withConsent:(NSString*)consent{
-    if( [self isNetworkAvailable]){
-        NSDictionary *responseDictionary = [self requestSynchronousJSONWithURLString:[CMPConfig getConsentToolURLString:consent]];
+    if([self isNetworkAvailable]){
+        // My CMP
+        NSDictionary *responseDictionary = @{
+            @"message":@"",
+            @"status": @1,
+            @"regulation":@1,
+            @"url":@"http://127.0.0.1:8000#cmpscreen",
+        };
+        // NSDictionary *responseDictionary = [self requestSynchronousJSONWithURLString:[CMPConfig getConsentToolURLString:consent]];
         
         CMPServerResponse *response = [[CMPServerResponse alloc] init];
         response.message = [responseDictionary objectForKey:RESPONSE_MESSAGE_KEY];
         response.status = [NSNumber numberWithInt:[[responseDictionary objectForKey:RESPONSE_STATUS_KEY] intValue]];
         response.regulation = [NSNumber numberWithInt:[[responseDictionary objectForKey:RESPONSE_REGULATION_KEY] intValue]];
         response.url = [responseDictionary objectForKey:RESPONSE_URL_KEY];
-      
+        
         [[CMPDataStoragePrivateUserDefaults alloc] setConsentToolUrl:response.url];
-        NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-        [[CMPDataStoragePrivateUserDefaults alloc] setLastRequested:[dateFormatter stringFromDate:[NSDate date]]];
+        //        NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+        //        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        //        [[CMPDataStoragePrivateUserDefaults alloc] setLastRequested:[dateFormatter stringFromDate:[NSDate date]]];
         return response;
-    
     } else {
         if(networkErrorListener){
             [networkErrorListener onErrorOccur:@"The Server coudn't be contacted, because no Network Connection was found"];

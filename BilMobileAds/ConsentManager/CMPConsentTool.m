@@ -212,8 +212,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self.viewController
                                              selector:@selector(onApplicationDidBecomeActive:)
-    name:@"NSApplicationDidBecomeActiveNotification"
-    object:nil];
+                                                 name:@"NSApplicationDidBecomeActiveNotification"
+                                               object:nil];
     
     return self;
 }
@@ -223,7 +223,9 @@
 }
 
 -(void)checkAndProceedConsentUpdate{
-    if([self needsServerUpdate]){
+    // My CMP
+    // if([self needsServerUpdate]){
+    if([self needShowCMP]){
         cmpServerResponse = [self proceedServerRequest];
         switch ([cmpServerResponse.status intValue]) {
             case 0:
@@ -245,12 +247,56 @@
     }
 }
 
+// My CMP
+-(BOOL) compareNowLessFuture:(NSString *)futureDate{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd' 'HH:mm:ss.SSSZ"];
+    
+    NSDate *date = [NSDate date];
+    NSDate *dateFuture = [dateFormatter dateFromString:futureDate];
+    NSComparisonResult result = [date compare:dateFuture];
+    // TRUE -> show
+    switch (result)
+    {
+        case NSOrderedAscending:
+            // date < dateFuture
+            return FALSE;
+        case NSOrderedSame:
+            // date = dateFuture
+            return FALSE;
+        case NSOrderedDescending:
+            // date > dateFuture
+            return TRUE;
+        default:
+            // Error
+            return TRUE;
+    }
+}
+-(BOOL) needShowCMP{
+    NSString *consentS = [[CMPConsentToolAPI alloc] consentString];
+    NSString *lastDate = [[CMPDataStoragePrivateUserDefaults alloc] lastRequested];
+    
+    if(consentS == nil || [consentS length] == 0) {
+        // Reject -> Answer after 14d
+        if(lastDate != nil || [lastDate length] > 0){
+            BOOL show = [self compareNowLessFuture:lastDate];
+            return show;
+        }
+        // First Time
+        return TRUE;
+    } else {
+        // Accepted -> Answer after 365d
+        BOOL show = [self compareNowLessFuture:lastDate];
+        return show;
+    }
+}
+
 -(void)showErrorMessage:(NSString *)message{
     if( serverErrorListener){
         [serverErrorListener onErrorOccur:message];
     } else {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:message preferredStyle:UIAlertControllerStyleAlert];
-
+        
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
         [alert addAction:cancel];
         [self.viewController presentViewController:alert animated:YES completion:nil];
@@ -258,7 +304,7 @@
 }
 
 -(BOOL) needsServerUpdate{
-    return ! [self calledThisDay];
+    return ![self calledThisDay];
 }
 
 -(CMPServerResponse*)proceedServerRequest{

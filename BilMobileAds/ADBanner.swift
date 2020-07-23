@@ -56,9 +56,9 @@ public class ADBanner : NSObject, GADBannerViewDelegate, CloseListenerDelegate {
                         DispatchQueue.main.async{
                             self.adUnitObj = data
                             
-                            let consentStr = CMPConsentToolAPI().consentString
-                            PBMobileAds.shared.log("ConsentStr: \(String(describing: consentStr))")
-                            if PBMobileAds.shared.showGDPR && consentStr == "" {
+                            let needShow = CMPConsentTool().needShowCMP();
+                            PBMobileAds.shared.log("ShowGDPR: \(PBMobileAds.shared.showGDPR) | needShowCMP: \(needShow)")
+                            if PBMobileAds.shared.showGDPR && needShow {
                                 let cmp = ShowCMP()
                                 cmp.closeDelegate = self
                                 cmp.open(self.adUIViewCtr, appName: PBMobileAds.shared.appName)

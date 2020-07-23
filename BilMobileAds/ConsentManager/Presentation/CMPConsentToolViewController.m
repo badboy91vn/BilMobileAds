@@ -3,6 +3,7 @@
 //  GDPR
 //
 
+#import "CMPDataStoragePrivateUserDefaults.h"
 #import "CMPConsentToolViewController.h"
 #import "CMPDataStorageV1UserDefaults.h"
 #import "CMPDataStorageV2UserDefaults.h"
@@ -14,9 +15,7 @@
 #import "CMPServerResponse.h"
 #import <WebKit/WebKit.h>
 
-// My CMP
-//NSString *const ConsentStringPrefix = @"consent://";
-NSString *const ConsentStringPrefix = @"euconsent=";
+NSString *const ConsentStringPrefix = @"consent://";
 NSString *const ConsentStringQueryParam = @"code64";
 
 @interface CMPConsentToolViewController ()<WKNavigationDelegate>
@@ -143,10 +142,24 @@ static bool error = FALSE;
     NSURLRequest *request = navigationAction.request;
     
     // new base64-encoded consent string received
-    // My CMP
-    // if ([request.URL.absoluteString.lowercaseString hasPrefix:ConsentStringPrefix]) {
-    if ([request.URL.absoluteString.lowercaseString rangeOfString:ConsentStringPrefix].location != NSNotFound) {
+    if ([request.URL.absoluteString.lowercaseString hasPrefix:ConsentStringPrefix]) {
         NSString *newConsentString = [self consentStringFromRequest:request];
+        
+        // My CMP
+        NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd' 'HH:mm:ss.SSSZ"];
+        // Reject
+        if([newConsentString hasPrefix:@"consentrejected"]){
+            newConsentString = @"";
+            
+            // Set Time Ask Again After Rejected
+            NSDate *add14Day = [[NSDate date] dateByAddingTimeInterval:1209600]; // sec | 24*60*60 * 14 = 1209600
+            [[CMPDataStoragePrivateUserDefaults alloc] setLastRequested:[dateFormatter stringFromDate:add14Day]];
+        } else { // Accepted
+            // Set Time Ask Again After Accepted
+            NSDate *add365Day = [[NSDate date] dateByAddingTimeInterval:31536000]; // sec | 24*60*60 * 365 = 31536000
+            [[CMPDataStoragePrivateUserDefaults alloc] setLastRequested:[dateFormatter stringFromDate:add365Day]];
+        }
         
         if ([self.delegate respondsToSelector:@selector(consentToolViewController:didReceiveConsentString:)]) {
             [self.delegate consentToolViewController:self didReceiveConsentString:newConsentString];
@@ -168,9 +181,7 @@ static bool error = FALSE;
             return [NSURLRequest requestWithURL:[self base64URLEncodedWithURL:[NSURL URLWithString:_cmpServerResponse.url]
                                                                    queryValue:_consentToolAPI.consentString]];
         }
-        // My CMP
-        return [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://slopex.net/cj/consent.html#cmpscreen"]];
-        // return [NSURLRequest requestWithURL:[NSURL URLWithString:_cmpServerResponse.url]];
+        return [NSURLRequest requestWithURL:[NSURL URLWithString:_cmpServerResponse.url]];
     }
     return nil;
 }
@@ -183,30 +194,13 @@ static bool error = FALSE;
 }
 
 -(NSString*)consentStringFromRequest:(NSURLRequest *)request {
-    // My CMP
-    NSArray *paramQuery = [[request.URL.query stringByRemovingPercentEncoding] componentsSeparatedByString:@";"];
-    for (NSString *param in paramQuery) {
-        NSRange consentStringRange = [param rangeOfString:ConsentStringPrefix];
-        if (consentStringRange.location != NSNotFound) {
-            NSString *consentString = [param substringFromIndex:consentStringRange.location + consentStringRange.length];
-            return consentString;
-        }
+    NSRange consentStringRange = [request.URL.absoluteString rangeOfString:ConsentStringPrefix options:NSBackwardsSearch];
+    if (consentStringRange.location != NSNotFound) {
+        NSString *responseString = [request.URL.absoluteString substringFromIndex:consentStringRange.location + consentStringRange.length];
+        NSArray *response = [responseString componentsSeparatedByString:@"/"];
+        NSString *consentString = response.firstObject;
+        return consentString;
     }
-    //    NSRange consentStringRange = [paramQuery rangeOfString:ConsentStringPrefix options:NSBackwardsSearch];
-    //    if (consentStringRange.location != NSNotFound) {
-    //        NSString *responseString = [paramQuery substringFromIndex:consentStringRange.location + consentStringRange.length];
-    //        NSArray *response = [responseString componentsSeparatedByString:@"/"];
-    //        NSString *consentString = response.firstObject;
-    //        return consentString;
-    //    }
-        
-    //    NSRange consentStringRange = [request.URL.absoluteString rangeOfString:ConsentStringPrefix options:NSBackwardsSearch];
-    //    if (consentStringRange.location != NSNotFound) {
-    //        NSString *responseString = [request.URL.absoluteString substringFromIndex:consentStringRange.location + consentStringRange.length];
-    //        NSArray *response = [responseString componentsSeparatedByString:@"/"];
-    //        NSString *consentString = response.firstObject;
-    //        return consentString;
-    //    }
     
     return nil;
 }
