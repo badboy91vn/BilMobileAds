@@ -278,7 +278,7 @@
     
     if(consentS == nil || [consentS length] == 0) {
         // Reject -> Answer after 14d
-        if(lastDate != nil || [lastDate length] > 0){
+        if (lastDate != nil && [lastDate length] > 0) {
             return [self compareNowLessFuture:lastDate];
         }
         // First Time

@@ -84,7 +84,7 @@ public class PBMobileAds {
                 self.log("Fetch Data Succ")
                 
                 DispatchQueue.main.async{
-                    self.gdprConfirm = dataJSON.gdprConfirm ?? true;
+                    self.gdprConfirm = true // dataJSON.gdprConfirm ?? false
                     self.pbServerEndPoint = dataJSON.pbServerEndPoint
                     
                     self.listAdUnitObj.append(dataJSON.adunit)
