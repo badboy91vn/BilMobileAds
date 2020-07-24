@@ -155,7 +155,7 @@ static bool error = FALSE;
             // Set Time Ask Again After Rejected
             NSDate *add14Day = [[NSDate date] dateByAddingTimeInterval:1209600]; // sec | 24*60*60 * 14 = 1209600
             [[CMPDataStoragePrivateUserDefaults alloc] setLastRequested:[dateFormatter stringFromDate:add14Day]];
-        } else { // Accepted
+        } else if([newConsentString hasPrefix:@"consentapproved"]){ // Accepted
             // Set Time Ask Again After Accepted
             NSDate *add365Day = [[NSDate date] dateByAddingTimeInterval:31536000]; // sec | 24*60*60 * 365 = 31536000
             [[CMPDataStoragePrivateUserDefaults alloc] setLastRequested:[dateFormatter stringFromDate:add365Day]];
