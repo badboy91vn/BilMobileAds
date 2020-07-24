@@ -20,7 +20,7 @@ public class PBMobileAds {
     
     // MARK: api
     var appName: String = "";
-    var showGDPR: Bool = false;
+    var gdprConfirm: Bool = false;
     private var pbServerEndPoint: String = ""
     
     private init() {
@@ -84,7 +84,7 @@ public class PBMobileAds {
                 self.log("Fetch Data Succ")
                 
                 DispatchQueue.main.async{
-                    self.showGDPR = dataJSON.showGDPR ?? true;
+                    self.gdprConfirm = dataJSON.gdprConfirm ?? true;
                     self.pbServerEndPoint = dataJSON.pbServerEndPoint
                     
                     self.listAdUnitObj.append(dataJSON.adunit)

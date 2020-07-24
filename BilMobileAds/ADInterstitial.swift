@@ -48,7 +48,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate, CloseListenerDel
                         DispatchQueue.main.async{
                             self.adUnitObj = data
 
-                            if PBMobileAds.shared.showGDPR && CMPConsentTool().needShowCMP() {
+                            if PBMobileAds.shared.gdprConfirm && CMPConsentTool().needShowCMP() {
                                 let cmp = ShowCMP()
                                 cmp.closeDelegate = self
                                 cmp.open(self.adUIViewCtr, appName: PBMobileAds.shared.appName)
@@ -148,7 +148,7 @@ public class ADInterstitial: NSObject, GADInterstitialDelegate, CloseListenerDel
         }
         
         // Set GDPR
-        if PBMobileAds.shared.showGDPR {
+        if PBMobileAds.shared.gdprConfirm {
             Targeting.shared.subjectToGDPR = true
             Targeting.shared.gdprConsentString = CMPConsentToolAPI().consentString
         }
